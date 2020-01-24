@@ -38,14 +38,17 @@ class mdl extends CI_Model
 	{
 		return $this->db->get('antrian');
 	}
-	public function data($id_jenis)
+	public function data()
 	{
-		$this->db->where($id_jenis);
 		return $this->db->get('antrian');
 	}
 	public function tambah_antrian($data)
 	{
 		$this->db->insert('antrian', $data);
+	}
+	public function data_teller($teller)
+	{
+		$this->db->insert('antrian',$teller);
 	}
 	public function ganti($data,$where)
 	{

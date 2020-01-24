@@ -116,7 +116,7 @@ class awal extends CI_Controller {
 		$this->load->view('register',$data);
 	}
 	public function kirim_email($link,$penerima)
-	{
+	{ //AmeliaMalik8367
 		$config = [
 		'mailtype'  => 'html',
         'charset'   => 'utf-8',
@@ -227,21 +227,22 @@ class awal extends CI_Controller {
 	}
 	public function pelayan()
 	{
-		$id_jenis = array('id_jenis' => 1);
-		$data['antrian'] = $this->mdl->data($id_jenis)->result();
+		$data['antrian'] = $this->mdl->data()->result();
 		$this->load->view('petugas',$data);
 	}
-	public function administrator()
+	/*Controller buat Tellernya blom dibuat yaa mell */
+	public function teller($antri)
 	{
-
+		$teller = array('id_antrian' => $antri, 'id_costumer' => $this->session->userdata('username'));
+		$this->mdl->data_teller($teller);
+		redirect(base_url('awal/usern'));
 	}
 	function daftar($kode)
 	{
-		$data = array('kode_antrian' => $kode, 'id_costumer' => $this->session->userdata('user'));
+		$data = array('id_antrian' => $kode, 'id_costumer' => $this->session->userdata('username'));
 		$this->mdl->tambah_antrian($data);
 		redirect(base_url('awal/usern'));
 	}
-	/*Controller buat Tellernya blom dibuat yaa mell */
 	public function ganti($status)
 	{
 		$id = $this->input->post('id');

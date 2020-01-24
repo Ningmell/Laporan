@@ -133,7 +133,7 @@
           <li class="nav-item">
             <a class="nav-link " href="<?php echo base_url('awal/pelayan'); ?>">
               <i class="ni ni-planet text-blue"></i> Data Antrian
-            </a>
+            </a> 
           </li>
           <li class="nav-item">
             <a class="nav-link " href="<?php //echo base_url('argon/'); ?>examples/maps.html">
@@ -196,7 +196,7 @@
           <div class="form-group mb-0">
             <div class="input-group input-group-alternative">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                <span class="input-group-text"><i class="fa fa-search"></i></span>
               </div>
               <input class="form-control" placeholder="Search" type="text">
             </div>

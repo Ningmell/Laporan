@@ -131,7 +131,7 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i></span>
+                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i><?php ; ?></span>
                     <span class="text-nowrap">Antian Sebelumnya</span>
                   </p>
                 </div>
@@ -170,7 +170,7 @@
                 <h3>Daftar Antrian Teller</h3>
               </div>
               <div class="modal-body">
-                <form method="post" action="<?php echo base_url('awal/Teller/'.$antri); ?>">
+                <form method="post" action="<?php echo base_url('awal/teller/'.$antri); ?>">
                 <div class="form-group" align="center">
                     <img src="<?php echo base_url('mitra.png') ?>" width="200">
                 </div>
