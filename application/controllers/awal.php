@@ -23,7 +23,7 @@ class awal extends CI_Controller {
 			foreach ($cek_user->result_array() as $key) {
 			$this->session->set_userdata($key);
 				if (md5($password) == $key['password']) {
-					redirect(base_url('awal/usern'));
+					redirect(base_url('user/usern'));
 				} else {
 					redirect(base_url('awal/'));
 				}
@@ -46,8 +46,8 @@ class awal extends CI_Controller {
 		$cek = $this->mdl->cek_login($where);
 		if ($cek->num_rows()>0) {
 			foreach ($cek->result_array() as $key) {
-				$this->session->set_userdata($key);
 				if (md5($password) == $key['password']) {
+					$this->session->set_userdata($key);
 					if ($key['level'] == '1') {
 						redirect(base_url('awal/administrator'));
 					} else {
@@ -110,83 +110,7 @@ class awal extends CI_Controller {
 		}
 		$this->session->sess_destroy();
 	}*/
-	public function reg()
-	{
-		$data['coustumer'] = $this->mdl->data_register()->result();
-		$this->load->view('register',$data);
-	}
-	public function kirim_email($link,$penerima)
-	{ //AmeliaMalik8367
-		$config = [
-		'mailtype'  => 'html',
-        'charset'   => 'utf-8',
-        'protocol'  => 'smtp',
-        'smtp_host' => 'smtp.gmail.com',
-        'smtp_user' => 'amel56139@gmail.com',  // Email gmail
-        'smtp_pass'   => 'Malik676',  // Password gmail
-        'smtp_crypto' => 'ssl',
-        'smtp_port'   => 465,
-        'crlf'    => "\r\n",
-        'newline' => "\r\n"];
-
-        $this->load->library('email', $config);
-        $this->email->set_newline("\r\n");
-        $this->email->from('amel56139@email.com', 'Amel Lia');
-        $this->email->to($penerima);
-        
-        $this->email->subject('Silahkan Coba Login');
-        // $this->email->message("COBA COBA,, <br><br> Klik <strong><a href='
-		// $http = (isset($_SERVER['HTTPS'])) ? https:// : http://;'
-		// $url = str_replace("index.php", "", $_SERVER['SCRIPT_NAME']);
-		// $config['base_url'] = $http . $_SERVER['SERVER_NAME'] . $url;
-		// </a></strong> untuk melakukan Login Antrian Online");
-		$this->email->message($link);
-
-        $tes = $this->email->send();
-        if ($tes) {
-        	echo "berhasil";
-        }else{
-        	echo "gagal";
-        }
-        redirect(base_url('awal/'));
-        // return $this->email->send();
-	}
-	public function regis()
-	{
-		$nama = $this->input->post('nama');
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$email = $this->input->post('email');
-		$alamat = $this->input->post('alamat');
-		$ttl = $this->input->post('ttl');
-		$hp = $this->input->post('hp');
-		$ktp = $this->input->post('no_ktp');
-
-		$id_user = strtoupper(substr(md5(time().$email.$username), 0,8));
-
-		$cek_data = array( 
-			'id_costumer' => $id_user,
-			'nama' => $nama, 
-			'username' => $username, 
-			'password' => md5($password), 
-			'email' => $email,
-			'alamat' => $alamat,
-			'ttl' => $ttl,
-			'hp' => $hp,
-			'no_ktp' => $ktp,
-		);
-		$this->mdl->cek_reg($cek_data);
-		$konfirmasi = base_url('/awal/verifikasi/'.$id_user);
-		$this->kirim_email($konfirmasi,$email);
-		redirect(base_url('awal/'));
-	}
-	function verifikasi()
-	{
-		$id = $this->uri->segment(3);
-		$data = array('status' => '1');
-		$where = array('id_costumer' => $id);
-		$this->mdl->konfir($data,$where);
-	}
+	
 	public function register_petugas()
 	{
 		$data_reg['petugas'] = $this->mdl->reg_petugas()->result();
@@ -220,14 +144,12 @@ class awal extends CI_Controller {
 		$this->mdl->cek_data($where);
 		redirect(base_url('awal/login_petugas'));
 	}
-	public function usern()
-	{
-		$data['jml'] = $this->mdl->antrian()->num_rows();
-		$this->load->view('user',$data);
-	}
+	
 	public function pelayan()
 	{
-		$data['antrian'] = $this->mdl->data()->result();
+		//$jenis = $this->session->userdata('id_jenis');
+		//echo $jenis;
+		$data['antrian'] = $this->mdl->data($jenis)->result();
 		$this->load->view('petugas',$data);
 	}
 	/*Controller buat Tellernya blom dibuat yaa mell */
@@ -235,13 +157,7 @@ class awal extends CI_Controller {
 	{
 		$teller = array('id_antrian' => $antri, 'id_costumer' => $this->session->userdata('username'));
 		$this->mdl->data_teller($teller);
-		redirect(base_url('awal/usern'));
-	}
-	function daftar($kode)
-	{
-		$data = array('id_antrian' => $kode, 'id_costumer' => $this->session->userdata('username'));
-		$this->mdl->tambah_antrian($data);
-		redirect(base_url('awal/usern'));
+		redirect(base_url('user/usern'));
 	}
 	public function ganti($status)
 	{
@@ -251,7 +167,6 @@ class awal extends CI_Controller {
 		$this->mdl->ganti($data,$where);
 		redirect(base_url('awal/pelayan'));
 	}
-
 }
 
 /* End of file controllername.php */

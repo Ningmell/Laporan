@@ -67,9 +67,9 @@
     </nav>
     <!-- Header -->
     <?php
-    $jl = 0;
-    $kode = "A-".($jml+1);
-    $antri = "B-".($jl+1);
+     //$kode = "A-".($jml+1);
+    $a = "A-".($A+1);
+    $b = "B-".($B+1);
     ?>
     <div class="header bg-gradient-primary py-7 py-lg-8">
       <div class="container">
@@ -98,7 +98,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-10">Administrator</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo "A-".$jml; ?></span>
+                      <span class="h2 font-weight-bold mb-0"><?php echo $a; ?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -122,7 +122,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-10">Teller</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo "B-".$jl; ?></span>
+                      <span class="h2 font-weight-bold mb-0"><?php echo $b; ?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -148,12 +148,12 @@
                 <h3>Daftar Antrian</h3>
               </div>
               <div class="modal-body">
-                <form method="post" action="<?php echo base_url('awal/daftar/'.$kode); ?>">
+                <form method="post" action="<?php echo base_url('user/daftar/'.$a); ?>">
                 <div class="form-group" align="center">
                     <img src="<?php echo base_url('mitra.png') ?>" width="200">
                 </div>
-                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $kode; ?>">
-                <input type="hidden" name="id-daftar">
+                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $a; ?>">
+                <input type="hidden" name="id-daftar" value="<?php echo $a; ?>">
               </div>
               <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal">Batal</button>
@@ -170,12 +170,12 @@
                 <h3>Daftar Antrian Teller</h3>
               </div>
               <div class="modal-body">
-                <form method="post" action="<?php echo base_url('awal/teller/'.$antri); ?>">
+                <form method="post" action="<?php echo base_url('user/teller/'.$b); ?>">
                 <div class="form-group" align="center">
                     <img src="<?php echo base_url('mitra.png') ?>" width="200">
                 </div>
-                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $antri; ?>">
-                <input type="hidden" name="id-info">
+                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $b; ?>">
+                <input type="hidden" name="id-info" value="<?php echo $b; ?>">
               </div>
               <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal">Batal</button>

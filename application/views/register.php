@@ -131,7 +131,7 @@
               <div class="text-center text-muted mb-4">
                 <small><center>REGISTER</center></small>
               </div>
-              <form role="form" method="post" action="<?php echo base_url('awal/regis'); ?>">
+              <form role="form" method="post" action="<?php echo base_url('user/regis'); ?>">
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">

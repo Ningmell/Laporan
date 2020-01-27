@@ -2,8 +2,8 @@
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
       <div class="container-fluid">
         <div class="header-body">
-        	<div style="color: white">
-        		<table class="table table-bordered" id="data">
+        	<div>
+        		<table class="table table-bordered" id="data" style="color: white">
         			<tr align="center">
         				<td>No</td>
         				<td>Kode Antrian</td>
