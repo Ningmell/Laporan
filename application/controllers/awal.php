@@ -147,18 +147,12 @@ class awal extends CI_Controller {
 	
 	public function pelayan()
 	{
-		//$jenis = $this->session->userdata('id_jenis');
-		//echo $jenis;
+		$jenis = $this->session->userdata('id_jenis');
+		echo $jenis;
 		$data['antrian'] = $this->mdl->data($jenis)->result();
 		$this->load->view('petugas',$data);
 	}
 	/*Controller buat Tellernya blom dibuat yaa mell */
-	public function teller($antri)
-	{
-		$teller = array('id_antrian' => $antri, 'id_costumer' => $this->session->userdata('username'));
-		$this->mdl->data_teller($teller);
-		redirect(base_url('user/usern'));
-	}
 	public function ganti($status)
 	{
 		$id = $this->input->post('id');

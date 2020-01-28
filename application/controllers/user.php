@@ -84,22 +84,27 @@ class user extends CI_Controller {
 		$where = array('id_costumer' => $id);
 		$this->mdl->konfir($data,$where);
 	}
-	public function usern()
+	function usern()
 	{
-		//x$jenis = $this->input->post('id_jenis'=> $id);
+		//$jenis = $this->input->post('id_jenis'=> $id);
+		//$jenis = array('id_jenis' => $id );
 		$data['A'] = $this->mdl->antrian('1')->num_rows();
-		$data['B'] = $this->mdl->antrian('2')->num_rows();
+		$data['B'] = $this->mdl->antrian1('2')->num_rows();
 		//$data['jml'] = $this->mdl->antrian()->num_rows();
 		$this->load->view('user',$data);
 	}
-	function daftar($antrian_t)
+	function daftar($a)
 	{
-		$data = array('id_antrian' => $antrian_t, 'id_costumer' => $this->session->userdata('username'));
+		$data = array('id_antrian' => $a, 'id_costumer' => $this->session->userdata('username'));
 		$this->mdl->tambah_antrian($data);
 		redirect(base_url('user/usern'));
 	}
-	
-
+	function teller($b)
+	{
+		$data = array('id_antrian' => $b, 'id_costumer' => $this->session->userdata('username'));
+		$this->mdl->data_teller($data);
+		redirect(base_url('user/usern'));
+	}
 }
 
 /* End of file  */

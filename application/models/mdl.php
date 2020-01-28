@@ -36,7 +36,12 @@ class mdl extends CI_Model
 	}
 	public function antrian()
 	{
-		//$this->db->where('id_jenis', $id_jenis);
+		//$this->db->where('id_jenis', $id);
+		return $this->db->get('antrian');
+	}
+	public function antrian1()
+	{
+		//$this->db->where('id_jenis', $id);
 		return $this->db->get('antrian');
 	}
 	public function data($jenis)
