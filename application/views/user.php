@@ -68,8 +68,8 @@
     <!-- Header -->
     <?php
      //$kode = "A-".($jml+1);
-    $a = "A-".($A+1);
-    $b = "B-".($B+1);
+    $administrator = "A-".($administrator+1);
+    $teller = "B-".($teller+1);
     ?>
     <div class="header bg-gradient-primary py-7 py-lg-8">
       <div class="container">
@@ -98,7 +98,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-10">Administrator</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo $a; ?></span>
+                      <span class="h2 font-weight-bold mb-0"><?php echo $administrator; ?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -107,7 +107,7 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i><?php ; ?></span>
+                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> <?php echo date('Y-m-d',strtotime('-2 day')); ?></span>
                     <span class="text-nowrap">Pendaftaran sebelumnya</span>
                   </p>
                 </div>
@@ -122,7 +122,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-10">Teller</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo "B-".$B; ?></span>
+                      <span class="h2 font-weight-bold mb-0"><?php echo $teller; ?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -131,7 +131,7 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i><?php ; ?></span>
+                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> <?php echo date('Y-m-d',strtotime('-5 day')); ?></span>
                     <span class="text-nowrap">Antian Sebelumnya</span>
                   </p>
                 </div>
@@ -148,12 +148,12 @@
                 <h3>Daftar Antrian</h3>
               </div>
               <div class="modal-body">
-                <form method="post" action="<?php echo base_url('user/daftar/'.$a); ?>">
+                <form method="post" action="<?php echo base_url('user/daftar/'.$administrator); ?>">
                 <div class="form-group" align="center">
                     <img src="<?php echo base_url('mitra.png') ?>" width="200">
                 </div>
-                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $a; ?>">
-                <input type="hidden" name="id-daftar" value="<?php echo $a; ?>">
+                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $administrator; ?>">
+                <input type="hidden" name="id-daftar" value="<?php echo $administrator; ?>">
               </div>
               <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal">Batal</button>
@@ -170,12 +170,12 @@
                 <h3>Daftar Antrian Teller</h3>
               </div>
               <div class="modal-body">
-                <form method="post" action="<?php echo base_url('user/teller/'.$b); ?>">
+                <form method="post" action="<?php echo base_url('user/teller/'.$teller); ?>">
                 <div class="form-group" align="center">
                     <img src="<?php echo base_url('mitra.png') ?>" width="200">
                 </div>
-                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $b; ?>">
-                <input type="hidden" name="id-info" value="<?php echo $b; ?>">
+                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $teller; ?>">
+                <input type="hidden" name="id-info" value="<?php echo $teller; ?>">
               </div>
               <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal">Batal</button>

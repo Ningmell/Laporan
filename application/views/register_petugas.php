@@ -207,6 +207,18 @@
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <select name="level">
+                      <option></option>
+                      <option value="1">Administrator</option>
+                      <option value="2">Teller</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                     </div>
                     <input class="form-control" placeholder="No-KTP" type="text" name="no_ktp">

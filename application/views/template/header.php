@@ -130,15 +130,18 @@
           <a class=" nav-link active " href="<?php //echo base_url('argon/') ?>"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>-->
+          <?php
+          if ($this->session->userdata('level') == '1') {
+           ?>
           <li class="nav-item">
             <a class="nav-link " href="<?php echo base_url('awal/pelayan'); ?>">
               <i class="ni ni-planet text-blue"></i> Data Antrian
             </a> 
-          </li>
+          </li> <?php } else { ?>
           <li class="nav-item">
             <a class="nav-link " href="<?php //echo base_url('argon/'); ?>examples/maps.html">
               <i class="ni ni-pin-3 text-orange"></i> Maps
-            </a>
+            </a><?php } ?>
           <!--<li class="nav-item">
             <a class="nav-link " href="<?php //echo base_url('argon/'); ?>examples/profile.html">
               <i class="ni ni-single-02 text-yellow"></i> User profile

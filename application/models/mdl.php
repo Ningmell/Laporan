@@ -34,16 +34,12 @@ class mdl extends CI_Model
 	{
 		$this->db->insert('coustumer',$cek_data);
 	}
-	public function antrian()
+	public function antrian($id)
 	{
-		//$this->db->where('id_jenis', $id);
+		$this->db->where('id_jenis', $id);
 		return $this->db->get('antrian');
 	}
-	public function antrian1()
-	{
-		//$this->db->where('id_jenis', $id);
-		return $this->db->get('antrian');
-	}
+
 	public function data($jenis)
 	{
 		$this->db->where('id_jenis', $jenis);
@@ -65,7 +61,10 @@ class mdl extends CI_Model
 	{
 		$this->db->update('coustumer',$data,$where);
 	}
-
+	public function konfirmasi($data,$where)
+	{
+		$this->db->update('petugas',$data,$where);
+	}
 }
 
 /* End of file modelName.php */

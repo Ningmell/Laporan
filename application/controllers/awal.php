@@ -8,31 +8,8 @@ class awal extends CI_Controller {
 		parent::__construct();
 		$this->load->model('mdl');
 	}
+	
 	public function index()
-	{
-		$this->load->view('login');
-	}
-	public function masuk()
-	{
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$where = array('username' => $username );
-
-		$cek_user = $this->mdl->cek($where);
-		if ($cek_user->num_rows()>0) {
-			foreach ($cek_user->result_array() as $key) {
-			$this->session->set_userdata($key);
-				if (md5($password) == $key['password']) {
-					redirect(base_url('user/usern'));
-				} else {
-					redirect(base_url('awal/'));
-				}
-			}
-		} else {
-			echo "username Salah";
-		}
-	}
-	public function login_petugas()
 	{
 		$this->load->view('login_petugas');
 	}
@@ -54,14 +31,118 @@ class awal extends CI_Controller {
 						redirect(base_url('awal/pelayan'));
 					}
 				} else {
-					echo "password salah";
+					$this->session->set_flashdata(array(
+						'pesan' => 'password salah!!',
+						'type' => 'danger'
+					));
+					redirect(base_url('awal/'));
 				}
 			}
 		} else {
-			echo "eror username";
+			$this->session->set_flashdata(array(
+				'pesan' => 'username salah',
+				'type' => 'danger'
+			));
+			redirect(base_url('awal/'));
 		}
 	}
-	/*public function masuk()
+	
+	
+	public function register_petugas()
+	{
+		$data_reg['petugas'] = $this->mdl->reg_petugas()->result();
+		$this->load->view('register_petugas', $data_reg);
+	}
+	public function send_email($link,$penerima)
+	{
+		$config = [
+		'mailtype'  => 'html',
+        'charset'   => 'utf-8',
+        'protocol'  => 'smtp',
+        'smtp_host' => 'smtp.gmail.com',
+        'smtp_user' => 'amel56139@gmail.com',  // Email gmail
+        'smtp_pass'   => 'Malik676',  // Password gmail
+        'smtp_crypto' => 'ssl',
+        'smtp_port'   => 465,
+        'crlf'    => "\r\n",
+        'newline' => "\r\n"];
+		$this->load->library('email',$config);
+		$this->email->set_newline("\r\n");
+		$this->email->from('amel56139@gmail.com', 'Mell mell');
+		$this->email->to($penerima);
+		$this->email->subject('Login Petugasx');
+		$this->email->message($link);
+		
+		$tes = $this->email->send();
+		if ($tes) {
+			echo "Yes";
+		} else {
+			echo "No";
+		}
+		redirect('awal/');
+	}
+	public function cek_petugas()
+	{
+		$nama = $this->input->post('nama');
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$jk = $this->input->post('jk');
+		$jabatan = $this->input->post('jabatan');
+		$alamat = $this->input->post('alamat');
+		$ttl = $this->input->post('ttl');
+		$email = $this->input->post('email');
+		$level = $this->input->post('level');
+		$no_ktp = $this->input->post('no_ktp');
+		$hp = $this->input->post('hp');
+		
+		$id_petugas = strtoupper(substr(md5(time().$email.$username), 0,8));
+
+		$where = array(
+			'id_petugas' => $id_petugas,
+			'nama' => $nama,
+			'username' => $username,
+			'password' => md5($password),
+			'jk' => $jk,
+			'jabatan' => $jabatan,
+			'alamat' => $alamat,
+			'ttl' => $ttl,
+			'email' => $email,
+			'level' => $level,
+			'no_ktp' => $no_ktp,
+			'hp' => $hp,
+		);
+		
+		$this->mdl->cek_data($where);
+		$konfir = base_url('/awal/veri/'.$id_petugas);
+		$this->send_email($konfir,$email);
+		redirect(base_url('awal/'));
+	}
+	public function veri()
+	{
+		$id = $this->uri->segment(3);
+		$data = array('status' => '1' );
+		$where = array('id_petugas' => $id);
+		$this->mdl->konfirmasi($data,$where);
+	}
+	public function pelayan()
+	{
+		$jenis = $this->session->userdata('id_jenis');
+		echo $jenis;
+		$data['antrian'] = $this->mdl->data($jenis)->result();
+		$this->load->view('petugas',$data);
+	}
+	/*Controller buat Tellernya blom dibuat yaa mell */
+	public function ganti($status)
+	{
+		$id = $this->input->post('id');
+		$data = array('status' => $status);
+		$where = array('id_antrian' => $id);
+		$this->mdl->ganti($data,$where);
+		redirect(base_url('awal/pelayan'));
+	}
+	
+}
+/*public function masuk()
 	{
 		$user = $this->input->post('username');
 		$id = $this->input->post('id');
@@ -110,58 +191,6 @@ class awal extends CI_Controller {
 		}
 		$this->session->sess_destroy();
 	}*/
-	
-	public function register_petugas()
-	{
-		$data_reg['petugas'] = $this->mdl->reg_petugas()->result();
-		$this->load->view('register_petugas', $data_reg);
-	}
-	public function cek_petugas()
-	{
-		$nama = $this->input->post('nama');
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$jk = $this->input->post('jk');
-		$jabatan = $this->input->post('jabatan');
-		$alamat = $this->input->post('alamat');
-		$ttl = $this->input->post('ttl');
-		$email = $this->input->post('email');
-		$no_ktp = $this->input->post('no_ktp');
-		$hp = $this->input->post('hp');
-		
-		$where = array(
-			'nama' => $nama,
-			'username' => $username,
-			'password' => md5($password),
-			'jk' => $jk,
-			'jabatan' => $jabatan,
-			'alamat' => $alamat,
-			'ttl' => $ttl,
-			'email' => $email,
-			'no_ktp' => $no_ktp,
-			'hp' => $hp,
-		);
-		$this->mdl->cek_data($where);
-		redirect(base_url('awal/login_petugas'));
-	}
-	
-	public function pelayan()
-	{
-		$jenis = $this->session->userdata('id_jenis');
-		echo $jenis;
-		$data['antrian'] = $this->mdl->data($jenis)->result();
-		$this->load->view('petugas',$data);
-	}
-	/*Controller buat Tellernya blom dibuat yaa mell */
-	public function ganti($status)
-	{
-		$id = $this->input->post('id');
-		$data = array('status' => $status);
-		$where = array('id_antrian' => $id);
-		$this->mdl->ganti($data,$where);
-		redirect(base_url('awal/pelayan'));
-	}
-}
 
 /* End of file controllername.php */
 /* Location: ./application/controllers/controllername.php */ ?>

@@ -37,7 +37,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
-        <a class="navbar-brand" href="#" class="argon_g">
+        <a class="navbar-brand" href="<?php echo base_url('user/') ?>" class="argon_g">
           <img src="<?php echo base_url('argon/'); ?>assets/img/brand/white.png" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -107,6 +107,18 @@
                 <small><!--Session nya--></small>
               </div>
               <form role="form" method="post" action="<?php echo base_url('awal/petugas'); ?>">
+                <div class="form-group">
+                  <?php
+                  $pesan = $this->session->flashdata('pesan');
+                  $type = $this->session->flashdata('type');
+                  if (!empty($pesan)) {
+                     echo '<div class="alert alert-'.$type.'">'.$pesan.'
+                     <button class="close" data-dismiss="alert">x</button>
+                     </div>
+                     ';
+                   } 
+                  ?>
+                </div>
                 <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">

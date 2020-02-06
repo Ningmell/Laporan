@@ -3,7 +3,8 @@
       <div class="container-fluid">
         <div class="header-body">
         	<div>
-        		<table class="table table-bordered" id="data" style="color: white">
+                <table class="table align-items-center table-dark table-flush">
+        		<!--<table class="table table-bordered" id="data" style="color: white">-->
         			<tr align="center">
         				<td>No</td>
         				<td>Kode Antrian</td>
