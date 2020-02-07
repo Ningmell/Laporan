@@ -130,18 +130,40 @@
           <a class=" nav-link active " href="<?php //echo base_url('argon/') ?>"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>-->
-          <?php
+          <?php  
           if ($this->session->userdata('level') == '1') {
-           ?>
+          ?>
           <li class="nav-item">
-            <a class="nav-link " href="<?php echo base_url('awal/pelayan'); ?>">
-              <i class="ni ni-planet text-blue"></i> Data Antrian
-            </a> 
-          </li> <?php } else { ?>
+            <a class="nav-link" href="<?php echo base_url('awal/pelayan'); ?>">
+              <i class="ni ni-chart-pie-35 text-blue"></i> Data Administrator
+            </a>
+          </li>
           <li class="nav-item">
-            <a class="nav-link " href="<?php //echo base_url('argon/'); ?>examples/maps.html">
-              <i class="ni ni-pin-3 text-orange"></i> Maps
-            </a><?php } ?>
+            <a class="nav-link" href="<?php echo base_url('awal/teller'); ?>">
+              <i class="ni ni-credit-card text-pink"></i> Data Teller
+            </a>
+          </li>
+          <?php
+          } else {
+            if ($this->session->userdata('id_jenis') == '1') {
+              echo '
+              <li class="nav-item">
+                <a href="'.base_url('awal/pelayan').'" class="nav-link">
+                  <i class="ni ni-chart-pie-35 text-blue"></i> Data Administrator
+                </a>
+              </li>
+              ';
+            } else {
+              echo '
+              <li class="nav-item">
+                <a href="'.base_url('awal/teller').'" class="nav-link">
+                  <i class="ni ni-credit-card text-pink"></i> Data Teller
+                </a>
+              </li>
+              ';
+            }
+          }
+          ?>
           <!--<li class="nav-item">
             <a class="nav-link " href="<?php //echo base_url('argon/'); ?>examples/profile.html">
               <i class="ni ni-single-02 text-yellow"></i> User profile
@@ -180,7 +202,7 @@
             </a>
           </li>-->
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('awal/'); ?>">
+            <a class="nav-link" href="<?php echo base_url('awal/logout'); ?>">
               <i class="ni ni-spaceship"></i> Logout
             </a>
           </li>

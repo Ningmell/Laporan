@@ -26,9 +26,13 @@ class awal extends CI_Controller {
 				if (md5($password) == $key['password']) {
 					$this->session->set_userdata($key);
 					if ($key['level'] == '1') {
-						redirect(base_url('awal/administrator'));
-					} else {
 						redirect(base_url('awal/pelayan'));
+					} else {
+						if ($key['id_jenis'] == '1') {
+							redirect(base_url('awal/pelayan'));
+						} else if ($key['id_jenis'] == '2') {
+							redirect(base_url('awal/pelayan'));
+						}
 					}
 				} else {
 					$this->session->set_flashdata(array(
@@ -87,7 +91,7 @@ class awal extends CI_Controller {
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$jk = $this->input->post('jk');
-		$jabatan = $this->input->post('jabatan');
+		$id_jenis = $this->input->post('id_jenis');
 		$alamat = $this->input->post('alamat');
 		$ttl = $this->input->post('ttl');
 		$email = $this->input->post('email');
@@ -95,6 +99,17 @@ class awal extends CI_Controller {
 		$no_ktp = $this->input->post('no_ktp');
 		$hp = $this->input->post('hp');
 		
+
+		$cek = $this->mdl->cek_username($username);
+
+		if ($cek->num_rows() > 0) {
+			$this->session->set_flashdata(array(
+				'pesan' => "username sudah digunakan.",
+				'type' => "warning"
+			));
+			redirect(base_url('awal/register_petugas'));
+		}
+
 		$id_petugas = strtoupper(substr(md5(time().$email.$username), 0,8));
 
 		$where = array(
@@ -103,7 +118,7 @@ class awal extends CI_Controller {
 			'username' => $username,
 			'password' => md5($password),
 			'jk' => $jk,
-			'jabatan' => $jabatan,
+			'id_jenis' => $id_jenis,
 			'alamat' => $alamat,
 			'ttl' => $ttl,
 			'email' => $email,
@@ -127,8 +142,13 @@ class awal extends CI_Controller {
 	public function pelayan()
 	{
 		$jenis = $this->session->userdata('id_jenis');
-		echo $jenis;
 		$data['antrian'] = $this->mdl->data($jenis)->result();
+		$this->load->view('petugas',$data);
+	}
+	public function teller()
+	{
+		$jenis = $this->session->userdata('id_jenis');
+		$data['antrian'] = $this->mdl->data_t($jenis)->result();
 		$this->load->view('petugas',$data);
 	}
 	/*Controller buat Tellernya blom dibuat yaa mell */
@@ -139,6 +159,11 @@ class awal extends CI_Controller {
 		$where = array('id_antrian' => $id);
 		$this->mdl->ganti($data,$where);
 		redirect(base_url('awal/pelayan'));
+	}
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('awal/');
 	}
 	
 }

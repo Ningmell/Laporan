@@ -69,7 +69,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="<?php echo base_url('argon/'); ?>examples/profile.html">
+              <a class="nav-link nav-link-icon" href="#">
                 <i class="ni ni-single-02"></i>
                 <span class="nav-link-inner--text">Profile</span>
               </a>
@@ -85,7 +85,7 @@
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
-              <h1 class="text-white">Selamat Datang!</h1>
+              <h1 class="text-white">Login Petugas!</h1>
               <p class="text-lead text-light">Sebelum Anda Bekerja Silahkan Login Terlebih Dahulu</p>
             </div>
           </div>

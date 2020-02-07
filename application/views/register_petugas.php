@@ -132,6 +132,17 @@
                 <small><center>REGISTER PETUGAS</center></small>
               </div>
               <form role="form" method="post" action="<?php echo base_url('awal/cek_petugas'); ?>">
+                <?php
+                $pesan = $this->session->flashdata('pesan');
+                $type = $this->session->flashdata('type');
+                if (!empty($pesan)) {
+                  echo '
+                  <div class="alert alert-'.$type.'">'.$pesan.'
+                    <button class="close" data-dismiss="alert" type="button">x</button>
+                  </div>
+                  ';
+                 } 
+                 ?>
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
@@ -145,7 +156,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Nama" type="text" name="nama">
+                    <input class="form-control" placeholder="Nama" type="text" name="nama" autofocus>
                   </div>
                 </div>
                 <div class="form-group">
@@ -169,7 +180,11 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-cart"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Jenis Kelamin" type="text" name="jk">
+                    <select name="jk" class="form-control">
+                      <option value="">--- jenis kelamin ---</option>
+                      <option value="Laki-laki">Laki-laki</option>
+                      <option value="Perempuan">Perempuan</option>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
@@ -177,7 +192,11 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-paper-diploma"></i></span>
                     </div>
-                    <input class="form-control" type="text" placeholder="Jabatan" name="jabatan">
+                    <select name="id_jenis" class="form-control">
+                      <option value="">--- jenis antrian ---</option>
+                      <option value="1">Administrator</option>
+                      <option value="2">Teller</option>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
@@ -209,10 +228,10 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <select name="level">
-                      <option></option>
-                      <option value="1">Administrator</option>
-                      <option value="2">Teller</option>
+                    <select name="level" class="form-control">
+                      <option value="">--- Level ---</option>
+                      <option value="1">Admin</option>
+                      <option value="2">Petugas</option>
                     </select>
                   </div>
                 </div>

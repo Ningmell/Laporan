@@ -39,11 +39,14 @@ class mdl extends CI_Model
 		$this->db->where('id_jenis', $id);
 		return $this->db->get('antrian');
 	}
-
 	public function data($jenis)
 	{
 		$this->db->where('id_jenis', $jenis);
 		return $this->db->get('antrian');
+	}
+	public function data_t($jenis)
+	{
+		return $this->db->get_where('antrian', array('id_jenis' => '2'));
 	}
 	public function tambah_antrian($data)
 	{
@@ -64,6 +67,11 @@ class mdl extends CI_Model
 	public function konfirmasi($data,$where)
 	{
 		$this->db->update('petugas',$data,$where);
+	}
+
+	public function cek_username($username)
+	{
+		return $this->db->get_where('petugas', array('username' => $username));
 	}
 }
 
