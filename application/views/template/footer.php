@@ -35,8 +35,14 @@
   <!--   Argon JS   -->
   <script src="<?php echo base_url('argon/'); ?>assets/js/argon-dashboard.min.js?v=1.1.0"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  <!-- <script src="<?php echo base_url('argon/assets/plugins/datatables/jquery.dataTables.js') ?>"></script>
-  <script src="<?php echo base_url('argon/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js'); ?>"></script> -->
+  <!-- Datatable -->
+  <script src="<?php echo base_url('argon/assets/plugins/datatables/jquery.dataTables.js') ?>"></script>
+  <script src="<?php echo base_url('argon/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js'); ?>"></script>
+  <?php  
+  if (!empty($js)) {
+    $this->load->view($js);
+  }
+  ?>
   <script>
     window.TrackJS &&
       TrackJS.install({

@@ -6,7 +6,7 @@ class awal extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('mdl');
+		$this->load->model('model_loginPetugas');
 	}
 	
 	public function index()
@@ -20,18 +20,18 @@ class awal extends CI_Controller {
 		
 		$where = array('username' => $user);
 
-		$cek = $this->mdl->cek_login($where);
+		$cek = $this->model_loginPetugas->cek_login($where);
 		if ($cek->num_rows()>0) {
 			foreach ($cek->result_array() as $key) {
 				if (md5($password) == $key['password']) {
 					$this->session->set_userdata($key);
 					if ($key['level'] == '1') {
-						redirect(base_url('awal/pelayan'));
+						redirect(base_url('Petugas/smua_teller'));
 					} else {
 						if ($key['id_jenis'] == '1') {
-							redirect(base_url('awal/pelayan'));
+							redirect(base_url('Petugas/'));
 						} else if ($key['id_jenis'] == '2') {
-							redirect(base_url('awal/pelayan'));
+							redirect(base_url('Petugas/'));
 						}
 					}
 				} else {
@@ -54,7 +54,7 @@ class awal extends CI_Controller {
 	
 	public function register_petugas()
 	{
-		$data_reg['petugas'] = $this->mdl->reg_petugas()->result();
+		$data_reg['petugas'] = $this->model_loginPetugas->reg_petugas()->result();
 		$this->load->view('register_petugas', $data_reg);
 	}
 	public function send_email($link,$penerima)
@@ -100,7 +100,7 @@ class awal extends CI_Controller {
 		$hp = $this->input->post('hp');
 		
 
-		$cek = $this->mdl->cek_username($username);
+		$cek = $this->model_loginPetugas->cek_username($username);
 
 		if ($cek->num_rows() > 0) {
 			$this->session->set_flashdata(array(
@@ -127,7 +127,7 @@ class awal extends CI_Controller {
 			'hp' => $hp,
 		);
 		
-		$this->mdl->cek_data($where);
+		$this->model_loginPetugas->cek_data($where);
 		$konfir = base_url('/awal/veri/'.$id_petugas);
 		$this->send_email($konfir,$email);
 		redirect(base_url('awal/'));
@@ -137,28 +137,7 @@ class awal extends CI_Controller {
 		$id = $this->uri->segment(3);
 		$data = array('status' => '1' );
 		$where = array('id_petugas' => $id);
-		$this->mdl->konfirmasi($data,$where);
-	}
-	public function pelayan()
-	{
-		$jenis = $this->session->userdata('id_jenis');
-		$data['antrian'] = $this->mdl->data($jenis)->result();
-		$this->load->view('petugas',$data);
-	}
-	public function teller()
-	{
-		$jenis = $this->session->userdata('id_jenis');
-		$data['antrian'] = $this->mdl->data_t($jenis)->result();
-		$this->load->view('petugas',$data);
-	}
-	/*Controller buat Tellernya blom dibuat yaa mell */
-	public function ganti($status)
-	{
-		$id = $this->input->post('id');
-		$data = array('status' => $status);
-		$where = array('id_antrian' => $id);
-		$this->mdl->ganti($data,$where);
-		redirect(base_url('awal/pelayan'));
+		$this->model_loginPetugas->konfirmasi($data,$where);
 	}
 	public function logout()
 	{

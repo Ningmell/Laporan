@@ -62,7 +62,7 @@
             </div>
           </div>
           <!-- Navbar items -->
-          <!--<ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto"><!--
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="<?php //echo base_url('argon/'); ?>index.html">
                 <i class="ni ni-planet"></i>
@@ -74,13 +74,13 @@
                 <i class="ni ni-circle-08"></i>
                 <span class="nav-link-inner--text">Register</span>
               </a>
-            </li>
+            </li>-->
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="<?php //echo base_url('argon/'); ?>examples/login.html">
+              <a class="nav-link nav-link-icon" href="<?php echo base_url('user/'); ?>">
                 <i class="ni ni-key-25"></i>
                 <span class="nav-link-inner--text">Login</span>
               </a>
-            </li>
+            </li><!--
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="<?php //echo base_url('argon/'); ?>examples/profile.html">
                 <i class="ni ni-single-02"></i>
@@ -132,6 +132,17 @@
                 <small><center>REGISTER</center></small>
               </div>
               <form role="form" method="post" action="<?php echo base_url('user/regis'); ?>">
+                <?php
+                $pesan = $this->session->flashdata('pesan');
+                $type = $this->session->flashdata('type');
+                  if ($pesan) {
+                      echo '<div class="alert alert-'.$type.'">'.$pesan.'
+                              <button class="close" data-dismiss="alert">x</button>
+                            </div>
+                   ';
+                 }
+
+                 ?>
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">

@@ -73,7 +73,7 @@
                 <div class="modal-header">
                     <h3>Pemrosesan</h3>
                 </div>
-                <form action="<?php echo base_url('awal/ganti/'.'3'); ?>" method="post">
+                <form action="<?php echo base_url('Petugas/ganti/'.'3'); ?>" method="post">
                 <div class="modal-body">
                     <input type="hidden" class="id-proses" name="id">
                     <p>Anda yakin memproses data dengan id <b class="id-proses">id-antrian</b></p>
@@ -93,7 +93,7 @@
                 <div class="modal-header">
                     <h3>Penyelesaian</h3>
                 </div>
-                <form action="<?php echo base_url('awal/ganti/'.'1'); ?>" method="post">
+                <form action="<?php echo base_url('Petugas/ganti/'.'1'); ?>" method="post">
                 <div class="modal-body">
                     <input type="hidden" class="id-selesai" name="id">
                     <p>Anda yakin menyelesaikan data dengan id <b class="id-selesai">id-antrian</b></p>

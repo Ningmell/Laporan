@@ -5,7 +5,7 @@ class user extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('mdl');
+		$this->load->model('model_loginUser');
 	}
 	public function index()
 	{
@@ -17,12 +17,12 @@ class user extends CI_Controller {
 		$password = $this->input->post('password');
 		$where = array('username' => $username );
 
-		$cek_user = $this->mdl->cek($where);
+		$cek_user = $this->model_loginUser->cek($where);
 		if ($cek_user->num_rows()>0) {
 			foreach ($cek_user->result_array() as $key) {
 			$this->session->set_userdata($key);
 				if (md5($password) == $key['password']) {
-					redirect(base_url('user/usern'));
+					redirect(base_url('data_user/'));
 				} else {
 					$this->session->set_flashdata(array(
 						'pesan' => 'Password Salah!!',
@@ -41,7 +41,7 @@ class user extends CI_Controller {
 	}
 	public function reg()
 	{
-		$data['coustumer'] = $this->mdl->data_register()->result();
+		$data['coustumer'] = $this->model_loginUser->data_register()->result();
 		$this->load->view('register',$data);
 	}
 	public function kirim_email($link,$penerima)
@@ -91,6 +91,16 @@ class user extends CI_Controller {
 		$hp = $this->input->post('hp');
 		$ktp = $this->input->post('no_ktp');
 
+		$cek_username = $this->model_loginUser->cek_user($username);
+		if ($cek_username->num_rows() > 0) 
+		{
+			$this->session->set_flashdata(array(
+				'pesan' => 'Username sudah digunakan',
+				'type' => 'danger'
+			));
+			redirect(base_url('user/reg'));
+		}
+
 		$id_user = strtoupper(substr(md5(time().$email.$username), 0,8));
 
 		$cek_data = array( 
@@ -104,7 +114,7 @@ class user extends CI_Controller {
 			'hp' => $hp,
 			'no_ktp' => $ktp,
 		);
-		$this->mdl->cek_reg($cek_data);
+		$this->model_loginUser->cek_reg($cek_data);
 		$konfirmasi = base_url('/user/verifikasi/'.$id_user);
 		$this->kirim_email($konfirmasi,$email);
 		redirect(base_url('user/'));
@@ -114,29 +124,9 @@ class user extends CI_Controller {
 		$id = $this->uri->segment(3);
 		$data = array('status' => '1');
 		$where = array('id_costumer' => $id);
-		$this->mdl->konfir($data,$where);
+		$this->model_loginUser->konfir($data,$where);
 	}
-	function usern()
-	{
-		//$jenis = $this->input->post('id_jenis'=> $id);
-		//$jenis = array('id_jenis' => $id );
-		$data['administrator'] = $this->mdl->antrian('1')->num_rows();
-		$data['teller'] = $this->mdl->antrian('2')->num_rows();
-		//$data['jml'] = $this->mdl->antrian()->num_rows();
-		$this->load->view('user',$data);
-	}
-	function daftar($a)
-	{
-		$data = array('id_antrian' => $a, 'id_costumer' => $this->session->userdata('username'), 'id_jenis' => '1');
-		$this->mdl->tambah_antrian($data);
-		redirect(base_url('user/usern'));
-	}
-	function teller($b)
-	{
-		$data = array('id_antrian' => $b, 'id_costumer' => $this->session->userdata('username'), 'id_jenis' => '2');
-		$this->mdl->data_teller($data);
-		redirect(base_url('user/usern'));
-	}
+	
 }
 
 /* End of file  */

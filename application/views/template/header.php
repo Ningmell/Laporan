@@ -134,13 +134,13 @@
           if ($this->session->userdata('level') == '1') {
           ?>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('awal/pelayan'); ?>">
-              <i class="ni ni-chart-pie-35 text-blue"></i> Data Administrator
+            <a class="nav-link" href="<?php echo base_url('Petugas/smua_teller'); ?>">
+              <i class="ni ni-credit-card text-pink"></i> Data Teller
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('awal/teller'); ?>">
-              <i class="ni ni-credit-card text-pink"></i> Data Teller
+            <a class="nav-link" href="<?php echo base_url('Petugas/data'); ?>">
+              <i class="ni ni-circle-08 text-yellow"></i> Data Petugas
             </a>
           </li>
           <?php
@@ -148,7 +148,7 @@
             if ($this->session->userdata('id_jenis') == '1') {
               echo '
               <li class="nav-item">
-                <a href="'.base_url('awal/pelayan').'" class="nav-link">
+                <a href="'.base_url('Petugas/').'" class="nav-link">
                   <i class="ni ni-chart-pie-35 text-blue"></i> Data Administrator
                 </a>
               </li>
@@ -156,7 +156,7 @@
             } else {
               echo '
               <li class="nav-item">
-                <a href="'.base_url('awal/teller').'" class="nav-link">
+                <a href="'.base_url('Petugas/teller').'" class="nav-link">
                   <i class="ni ni-credit-card text-pink"></i> Data Teller
                 </a>
               </li>
@@ -216,7 +216,8 @@
       <div class="container-fluid">
         <!-- Brand -->
         <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="<?php echo base_url('argon/'); ?>index.html">Dashboard</a>
-        <!-- Form -->
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"></a>
+        <!-- Form 
         <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">
             <div class="input-group input-group-alternative">
@@ -226,7 +227,7 @@
               <input class="form-control" placeholder="Search" type="text">
             </div>
           </div>
-        </form>
+        </form>-->
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
