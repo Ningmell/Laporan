@@ -32,12 +32,28 @@ class model_petugas extends CI_Model {
 	}
 	public function save_petugas($data)
 	{
-		return $this->db->get_where('petugas', $data);
+		$this->db->insert('petugas', $data);
 	}
-	public function hapus_data($username)
+	public function cek_username($username)
 	{
-		$this->db->where('username', $username);
-		return $this->db->delete('petugas');
+		return $this->db->get_where('petugas', array('username' => $username ));
+	}
+	public function edit_data($data,$where)
+	{
+		$this->db->update('petugas', $data, $where);
+	}
+	public function hapus_data($tabel,$where)
+	{
+		$this->db->delete($tabel, $where);
+	}
+	public function get_sql_details()
+	{
+		return array(
+			'user' => 'root',
+			'pass' => '',
+			'db' => 'antrian_online',
+			'host' => 'localhost'
+		);
 	}
 
 }

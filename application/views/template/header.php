@@ -140,7 +140,12 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('Petugas/data'); ?>">
-              <i class="ni ni-circle-08 text-yellow"></i> Data Petugas
+              <i class="ni ni-badge text-info"></i> Data Petugas
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('data_user/data'); ?>">
+              <i class="ni ni-circle-08 text-yellow"></i> Data User
             </a>
           </li>
           <?php
@@ -216,7 +221,7 @@
       <div class="container-fluid">
         <!-- Brand -->
         <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="<?php echo base_url('argon/'); ?>index.html">Dashboard</a>
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"></a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"><?php echo $this->session->userdata('username'); ?></a>
         <!-- Form 
         <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">

@@ -17,17 +17,22 @@ class data_user extends CI_Controller {
 		//$data['jml'] = $this->mdl->antrian()->num_rows();
 		$this->load->view('user',$data);
 	}
-	function daftar($a)
+	public function daftar($a)
 	{
 		$data = array('id_antrian' => $a, 'id_costumer' => $this->session->userdata('username'), 'id_jenis' => '1');
 		$this->model_user->tambah_antrian($data);
 		redirect(base_url('data_user/'));
 	}
-	function teller($b)
+	public function teller($b)
 	{
 		$data = array('id_antrian' => $b, 'id_costumer' => $this->session->userdata('username'), 'id_jenis' => '2');
 		$this->model_user->data_teller($data);
 		redirect(base_url('data_user/'));
+	}
+	public function data()
+	{
+		$data['coustumer'] = $this->model_user->data_customer()->result();
+		$this->load->view('view_dataUser', $data);
 	}
 
 }
