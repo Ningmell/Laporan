@@ -17,6 +17,19 @@ class model_user extends CI_Model {
 	{
 		$this->db->insert('antrian',$teller);
 	}
+	public function data_customer()
+	{
+		return $this->db->get('coustumer');
+	}
+	public function konek_sql()
+	{
+		return array(
+			'user' => 'root',
+			'pass' => '',
+			'db' => 'antrian_online',
+			'host' => 'localhost'
+		);
+	}
 
 }
 

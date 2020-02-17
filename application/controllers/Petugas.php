@@ -133,12 +133,12 @@ class petugas extends CI_Controller {
 			array('db' => 'email', 'dt' => 6),
 			array('db' => 'Id_petugas', 'dt' => 7,
 				'formatter' => function ($d,$row){
-					return '<a href="javascript:void(0);" class="detail_record btn btn-success btn-xs btn-flat"
+					return '<a href="javascript:void(0);" class="detail_record btn btn-success btn-xs btn-flat btn-sm"
 					title="DETAIL" data-id_petugas="'.$d.'"><i class="fa fa-search"></i></a>
-						<a href="javascript:void(0);" class="detail_record btn btn-warning btn-xs btn-flat"
-					title="EDIT" data-id_petugas="'.$d.'"><i class="fa fa-edit"></i></a>
-						<a href="javascript:void(0);" class="detail_record btn btn-danger btn-xs btn-flat"
-					title="HAPUS" data-id_petugas="'.$d.'"><i class="fa fa-trash"></i></a>
+						<a href="javascript:void(0);"  class="detail_record btn btn-warning btn-xs btn-flat btn-sm"
+					title="EDIT" data-id_petugas="'.$d.'" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></a>
+						<a href="javascript:void(0);" class="delete_record btn btn-danger btn-xs btn-flat btn-sm"
+					title="HAPUS" data-id_petugas="'.$d.'" data-toggle="modal" data-target="#hapus"><i class="fa fa-trash"></i></a>
 					';
 				}
 			)

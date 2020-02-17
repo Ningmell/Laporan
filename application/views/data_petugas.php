@@ -1,5 +1,5 @@
 <?php include 'template/header.php'; ?>
-<div class="header bg-gradient-primary  pb-8 pt-5 pt-md-8">
+<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
 	<div class="container-fluid">
 		<div class="header-body">
 			<div class="card bg-default shadow">
@@ -23,12 +23,12 @@
 						<thead class="thead-dark">
 							<tr>
 								<th scope="col">No</th>
-								<th scope="col">Nama <input class="form-control input-sm" type="text" placeholder="SEARCH.."></th>
-								<th scope="col">Username <input class="form-control input-sm" type="text" placeholder="SEARCH.."></th>
-								<th scope="col">Jenis Kelamin <input class="form-control input-sm" type="text" placeholder="SEARCH.."></th>
-								<th scope="col">Alamat <input class="form-control input-sm" type="text" placeholder="SEARCH.."></th>
-								<th scope="col">TTL <input class="form-control input-sm" type="text" placeholder="SEARCH.."></th>
-								<th scope="col">Email <input class="form-control input-sm" type="text" placeholder="SEARCH"></th>
+								<th scope="col" style="width: 12%;">Nama <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
+								<th scope="col" style="width: 12%;">Username <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
+								<th scope="col" style="width: 12%;">Jenis Kelamin <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
+								<th scope="col" style="width: 12%;">Alamat <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
+								<th scope="col" style="width: 12%;">TTL <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
+								<th scope="col" style="width: 12%;">Email <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
 								<th scope="col">Aksi</th>
 							</tr>
 						</thead>

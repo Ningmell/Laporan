@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="<?php echo base_url('argon/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css'); ?>">
 </head>
 
-<body class="bg-default">
+<body class="">
   <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
       <!-- Toggler -->
