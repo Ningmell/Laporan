@@ -4,7 +4,7 @@
 		<div class="header-body">
 			<div class="card bg-default shadow">
 				<div class="card-header bg-default">
-					<h3 class="text-white"><button class="btn btn-success btn-sm" data-toggle="modal" data-target="#tambah"><i class="ni ni-fat-add"></i></button> DATA PETUGAS</h3>
+					<h3 class="text-white"><button class="btn btn-success btn-sm" data-toggle="modal" data-target="#tambah"><i class="ni ni-fat-add"></i> DATA PETUGAS</button> </h3>
 				</div>
 				<div>
 					<?php
@@ -48,22 +48,16 @@
 					<h3>Tambah Petugas</h3>
 				</div>
 				<div class="modal-body">
-					<form method="post" action="<?php echo base_url('Petugas/save_data'); ?>">
+					<form id="form_simpan">
 
-                		<div class="form-group">
-                 			<div class="input-group input-group-alternative mb-3">
-                   				<div class="input-group-prepend">
-                      				<span class="input-group-text"><i class="ni ni-key-25"></i></span>
-                    			</div>
-                    			<input type="hidden" name="Id_petugas" class="id">
-                  			</div>
-               		 	</div>
+               		 	<input type="hidden" name="Id_petugas">
+
 						<div class="form-group">
                   			<div class="input-group input-group-alternative mb-3">
                     			<div class="input-group-prepend">
                       			<span class="input-group-text"><i class="ni ni-single-02"></i></span>
                     			</div>
-                    			<input type="text" name="nama" placeholder="Nama" class="form-control">
+                    			<input type="text" name="nama" placeholder="Nama" required="required" class="form-control">
                   			</div>
                 		</div>
                 		<div class="form-group">
@@ -159,8 +153,8 @@
                   			</div>
                 		</div>
                 	<div class="modal-footer">
-                		<button class="btn btn-default" data-dismiss="modal">Batal</button>
-                		<button class="btn btn-info" type="submit">Simpan</button>
+                		<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                		<button class="btn btn-info" type="button" id="tbl_simpan">Simpan</button>
                 	</div>
 					</form>
 				</div>
@@ -357,4 +351,26 @@
 			if (y == true) {location='<?php echo site_url('Petugas/delete_petugas/') ?>'+id_petugas}else{}
 		});
 	});
+</script>
+<script>
+$(document).ready(function () {
+	$('#tbl_simpan').click(function () {
+		// swal("gagal", "gagallll", "success");
+		$.ajax({
+			url: '<?php echo base_url('Petugas/save_data'); ?>',
+			type: 'POST',
+			data: $('#form_simpan').serialize(),
+			success:function(hasil){
+				 alert(hasil);
+
+				if (hasil == '1') {
+					swal("Good job!", "You clicked the button!", "success");
+					window.location="";
+				}else{
+					swal("gagal", "gagallll", "warning");
+				}
+			}
+		});
+	});
+});
 </script>

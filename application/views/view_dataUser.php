@@ -4,7 +4,7 @@
 		<div class="header-body">
 			<div class="card bg-default shadow">
 				<div class="card-header bg-default">
-					<h3 class="text-white">DATA PETUGAS</h3>
+					<h3 class="text-white">DATA User</h3>
 				</div>
 				<div class="table-responsive card-body">
 					<table class="table align-items-center table-dark table-flush" id="tbl_user">
@@ -63,7 +63,7 @@
 				['100 Rows', '150 Rows', '200 Rows', '300 Rows', 'All']
 			],
 			"ajax"	: '<?php echo site_url('data_user/spp_user'); ?>',
-			"order"	: [[1, 'asc']],
+			"order"	: [[1, 'ASC']],
 			"columnsDefs"	: [{
 				"targets" : [ -1 ],
 				"orderable" : false

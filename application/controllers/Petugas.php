@@ -65,7 +65,7 @@ class petugas extends CI_Controller {
 		$level = $this->input->post('level');
 
 		$data = array(
-			'Id_petugas' => $id_petugas,
+			'Id_petugas' => '',
 			'nama' => $nama,
 			'username' => $username,
 			'password' => md5($password),
@@ -78,9 +78,16 @@ class petugas extends CI_Controller {
 			'id_jenis' => $id_jenis,
 			'level' => $level
 		);
-		$this->model_petugas->save_petugas($data);
-		$this->session->set_flashdata('pesan', 'Berhasil di tambah');
-		redirect(base_url('Petugas/data'));
+
+		$tes = $this->model_petugas->save_petugas($data);
+		if ($tes) {
+			// echo "<input type='hidden' id='berhasil' value='1'>";
+			echo "1";
+		} else {
+			// echo "<input type='hidden' id='berhasil' value='0'>";
+			echo "0";
+		}
+		// redirect(base_url('Petugas/data'));
 	}
 	public function edit()
 	{
