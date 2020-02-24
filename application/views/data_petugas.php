@@ -154,7 +154,7 @@
                 		</div>
                 	<div class="modal-footer">
                 		<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                		<button class="btn btn-info" type="button" id="tbl_simpan">Simpan</button>
+                		<button class="btn btn-info" type="submit" id="tbl_simpan">Simpan</button>
                 	</div>
 					</form>
 				</div>
@@ -355,22 +355,28 @@
 <script>
 $(document).ready(function () {
 	$('#tbl_simpan').click(function () {
-		// swal("gagal", "gagallll", "success");
+		//swal("gagal", "gagallll", "success");
 		$.ajax({
 			url: '<?php echo base_url('Petugas/save_data'); ?>',
 			type: 'POST',
 			data: $('#form_simpan').serialize(),
-			success:function(hasil){
-				 alert(hasil);
+			success:function(data){
+				 alert(data);
 
-				if (hasil == '1') {
+				if (data == '1') {
 					swal("Good job!", "You clicked the button!", "success");
-					window.location="";
-				}else{
-					swal("gagal", "gagallll", "warning");
+					window.location="<?php echo base_url('Petugas/data'); ?>";
+				} //else {
+					//swal("opppsss...", "danger", "danger");
+				//}
+			},
+			error:function (data) {
+				if (data == '0') {
+					swal("oppppsss....", "Nooooo", "danger");
 				}
 			}
 		});
+		//e.preventDefault();
 	});
 });
 </script>

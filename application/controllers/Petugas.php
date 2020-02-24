@@ -81,11 +81,16 @@ class petugas extends CI_Controller {
 
 		$tes = $this->model_petugas->save_petugas($data);
 		if ($tes) {
-			// echo "<input type='hidden' id='berhasil' value='1'>";
 			echo "1";
 		} else {
 			// echo "<input type='hidden' id='berhasil' value='0'>";
-			echo "0";
+			?>
+			<script type="text/javascript">
+				Swal.fire('Gagal','errorr','danger').then(function () {
+					window.location="<?php echo base_url('Petugas/'); ?>"
+				})
+			</script>
+			<?php
 		}
 		// redirect(base_url('Petugas/data'));
 	}

@@ -32,6 +32,7 @@
   <!-- CSS Files -->
   <link href="<?php echo base_url('argon/'); ?>assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
   <link rel="stylesheet" href="<?php echo base_url('argon/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('bootstrap/css.sweetalert.css'); ?>">
 </head>
 
 <body class="">
