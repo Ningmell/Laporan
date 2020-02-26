@@ -162,21 +162,24 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="edit">
+	<?php 
+	foreach ($petugas as $key) {
+	 ?>
+	<div class="modal fade" id="edit<?php echo $key->Id_petugas; ?>">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h3>Edit Data</h3>
 				</div>
 					<div class="modal-body">
-						<form method="post" action="<?php echo base_url('Petugas/edit') ?>">
+						<form method="post" action="<?php echo base_url('Petugas/edit/'.$key->Id_petugas); ?>">
 							<input class="id-edit" name="Id_petugas" type="hidden">
 							<div class="form-group">
 								<div class="input-group input-group-alternative mb-3">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-single-02"></i></span>
 									</div>
-									<input class="form-control id-nama" name="nama" type="text" placeholder="Nama">
+									<input class="form-control id-nama" name="nama" type="text" placeholder="Nama" value="<?=$key->nama?>">
 								</div>
 							</div>
 							<div class="form-group">
@@ -184,7 +187,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-hat-3"></i></span>
 									</div>
-									<input class="form-control id-user" name="username" type="text" placeholder="Username">
+									<input class="form-control id-user" name="username" type="text" placeholder="Username" value="<?=$key->username;?>">
 								</div>
 							</div>
                 			<div class="form-group">
@@ -192,7 +195,7 @@
                 					<div class="input-group-prepend">
                 						<span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 					</div>
-                					<input type="password" name="password" placeholder="Password" class="form-control">
+                					<input type="password" name="password" placeholder="Password" class="form-control" value="<?=$key->password?>">
                 				</div>
                 			</div>
 							<div class="form-group">
@@ -200,7 +203,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-cart"></i></span>
 									</div>
-									<select name="jk" class="form-control id-jk">
+									<select name="jk" class="form-control id-jk" value="<?=$key->jk?>">
 										<option value="">--- jenis kelamin ---</option>
 										<option value="Laki-laki">Laki-laki</option>
 										<option value="Perempuan">Perempuan</option>
@@ -212,7 +215,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-square-pin"></i></span>
 									</div>
-									<input class="form-control id-alamat" name="alamat" type="text" placeholder="Alamat">
+									<input class="form-control id-alamat" name="alamat" type="text" placeholder="Alamat" value="<?=$key->alamat?>">
 								</div>
 							</div>
 							<div class="form-group">
@@ -220,7 +223,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-world"></i></span>
 									</div>
-									<input class="form-control id-ttl" name="ttl" type="text" placeholder="Tempat Tanggal Lahir">
+									<input class="form-control id-ttl" name="ttl" type="text" placeholder="Tempat Tanggal Lahir" value="<?=$key->ttl?>">
 								</div>
 							</div>
 							<div class="form-group">
@@ -228,7 +231,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-email-83"></i></span>
 									</div>
-									<input class="form-control id-email" name="email" type="text" placeholder="Email">
+									<input class="form-control id-email" name="email" type="text" placeholder="Email" value="<?=$key->email?>">
 								</div>
 							</div>
 							<div class="modal-footer">
@@ -241,25 +244,47 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="hapus">
+	<div class="modal fade" id="hapus<?php echo $key->Id_petugas; ?>">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h3>Hapus Data</h3>
 				</div>
-				<form method="post" action="<?php echo base_url('Petugas/hapus'); ?>">
+				<form method="post" action="<?php echo base_url('Petugas/hapus/'.$key->Id_petugas); ?>">
 				<div class="modal-body">
 					<input class="id-hapus" name="Id_petugas" type="hidden">
 					<p>Anda yakin akan menghapus data <b class="user-hapus">Username</b></p>
 				</div>
 				<div class="modal-footer">
-					<button class="btn btn-default" data-dismiss="modal">Batal</button>
+					<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 					<button class="btn btn-danger" type="submit">Hapus</button>
 				</div>
 				</form>
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="detail<?php echo $key->Id_petugas; ?>">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Detail Data</h3>
+				</div>
+				<div class="modal-body">
+					<label>Nama : <?= $key->nama; ?></label><br>
+					<label>Username : <?= $key->username; ?></label><br>
+					<label>Alamat : <?= $key->alamat; ?></label><br>
+					<label>Jenis Kelamin : <?= $key->jk; ?></label><br>
+					<label>Email : <?= $key->email; ?></label><br>
+					<label>Tempat Tanggal Lahir : <?= $key->ttl; ?></label>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
+					<button class="btn btn-success" type="submit">Kembali</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php } ?>
 </div>
 <?php include 'template/footer.php'; ?>
 <script>
@@ -333,22 +358,6 @@
 					table.search(this.value).draw();
 				}
 			});
-		});
-
-		$('#tbl_ptg').on('click', 'detail_record', function () {
-			var id_petugas = $(this).data('Id_petugas');
-			location= '<?php echo site_url('Petugas/detail_petugas/'); ?>'+id_petugas;
-		});
-
-		$('#tbl_ptg').on('click', 'edit_record', function () {
-			var id_petugas = $(this).data('Id_petugas');
-			location= '<?php echo site_url('Petugas/edit_petugas/'); ?>'+id_petugas;
-		});
-
-		$('#tbl_ptg').on('click', 'delete_record', function () {
-			var id_petugas = $(this).data('Id_petugas');
-			var y = confirm('Yakin Hapus Data ini??');
-			if (y == true) {location='<?php echo site_url('Petugas/delete_petugas/') ?>'+id_petugas}else{}
 		});
 	});
 </script>

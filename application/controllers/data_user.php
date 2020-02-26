@@ -48,6 +48,62 @@ class data_user extends CI_Controller {
 		$data['coustumer'] = $this->model_user->data_customer()->result();
 		$this->load->view('view_dataUser', $data);
 	}
+	public function tambah_data()
+	{
+		$nama = $this->input->post('nama');
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$alamat = $this->input->post('alamat');
+		$ttl = $this->input->post('ttl');
+		$email = $this->input->post('email');
+		$hp = $this->input->post('hp');
+
+		$data = array('id_costumer' => '',
+			'nama' => $nama,
+			'username' => $username,
+			'password' => $password,
+			'alamat' => $alamat,
+			'ttl' => $ttl,
+			'email' => $email,
+			'hp' => $hp
+		);
+
+		$this->model_user->save_data($data);
+	}
+	public function update()
+	{
+		$id_costumer = $this->uri->segment(3);
+		$nama = $this->input->post('nama');
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$alamat = $this->input->post('alamat');
+		$ttl = $this->input->post('ttl');
+		$email = $this->input->post('email');
+		$hp = $this->input->post('hp');
+
+		$data = array(
+			'nama' => $nama,
+			'username' => $username,
+			'password' => $password,
+			'alamat' => $alamat,
+			'ttl' => $ttl,
+			'email' => $email,
+			'hp' => $hp
+		);
+
+		$where = array('id_costumer' => $id_costumer);
+
+		$this->model_user->save_edit($data,$where);
+		redirect(base_url('data_user/data'));
+
+	}
+	public function hapus()
+	{
+		$id = $this->uri->segment(3);
+		$where = array('id_costumer' => $id);
+		$this->model_user->save_hpus('coustumer',$where);
+		redirect(base_url('data_user/data'));
+	}
 	public function spp_user()
 	{
 		$sql_details = $this->model_user->konek_sql();
@@ -65,9 +121,9 @@ class data_user extends CI_Controller {
 			array('db' => 'id_costumer', 'dt' => 7,
 				'formatter' => function ($d,$row)
 				{
-					return '<a href="javascript:void(0);" class="detail_record btn btn-success btn-sm btn-flat" title="DETAIL" data-id_costumer="'.$d.'"><i class="fa fa-search"></i></a>
-							<a href="javascript:void(0);" class="edit_record btn btn-warning btn-sm btn flat" title="EDIT" data-id_costumer="'.$d.'"><i class="fa fa-edit"></i><a/>
-							<a href="javascript:void(0);" class="delete_record btn btn-danger btn-sm btn-flat" title="DELETE" data-id_costumer="'.$d.'"><i class="fa fa-trash"></i</a>
+					return '<a href="javascript:void(0);" class="detail_record btn btn-success btn-sm btn-flat" title="DETAIL" data-id_costumer="'.$d.'" data-toggle="modal" data-target="#detail'.$d.'"><i class="fa fa-search"></i></a>
+							<a href="javascript:void(0);" class="edit_record btn btn-warning btn-sm btn flat" title="EDIT" data-id_costumer="'.$d.'"  data-toggle="modal" data-target="#edit'.$d.'"><i class="fa fa-edit"></i><a/>
+							<a href="javascript:void(0);" class="delete_record btn btn-danger btn-sm btn-flat" title="DELETE" data-id_costumer="'.$d.'"  data-toggle="modal" data-target="#hapus'.$d.'"><i class="fa fa-trash"></i</a>
 					';
 					
 				}

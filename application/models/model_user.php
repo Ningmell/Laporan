@@ -21,6 +21,18 @@ class model_user extends CI_Model {
 	{
 		return $this->db->get('coustumer');
 	}
+	public function save_data($data)
+	{
+		$this->db->insert('coustumer', $data);
+	}
+	public function save_edit($data, $where)
+	{
+		$this->db->update('coustumer', $data, $where);
+	}
+	public function save_hpus($tabel,$where)
+	{
+		$this->db->delete($tabel,$where);
+	}
 	public function konek_sql()
 	{
 		return array(

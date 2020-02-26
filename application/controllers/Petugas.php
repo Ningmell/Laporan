@@ -79,12 +79,12 @@ class petugas extends CI_Controller {
 			'level' => $level
 		);
 
-		$tes = $this->model_petugas->save_petugas($data);
-		if ($tes) {
-			echo "1";
-		} else {
+		 $this->model_petugas->save_petugas($data);
+		//if ($tes) {
+		//	echo "1";
+		//} else {
 			// echo "<input type='hidden' id='berhasil' value='0'>";
-			?>
+		/*	?>
 			<script type="text/javascript">
 				Swal.fire('Gagal','errorr','danger').then(function () {
 					window.location="<?php echo base_url('Petugas/'); ?>"
@@ -92,7 +92,7 @@ class petugas extends CI_Controller {
 			</script>
 			<?php
 		}
-		// redirect(base_url('Petugas/data'));
+		// redirect(base_url('Petugas/data'));*/
 	}
 	public function edit()
 	{
@@ -145,12 +145,9 @@ class petugas extends CI_Controller {
 			array('db' => 'email', 'dt' => 6),
 			array('db' => 'Id_petugas', 'dt' => 7,
 				'formatter' => function ($d,$row){
-					return '<a href="javascript:void(0);" class="detail_record btn btn-success btn-xs btn-flat btn-sm"
-					title="DETAIL" data-id_petugas="'.$d.'"><i class="fa fa-search"></i></a>
-						<a href="javascript:void(0);"  class="detail_record btn btn-warning btn-xs btn-flat btn-sm"
-					title="EDIT" data-id_petugas="'.$d.'" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></a>
-						<a href="javascript:void(0);" class="delete_record btn btn-danger btn-xs btn-flat btn-sm"
-					title="HAPUS" data-id_petugas="'.$d.'" data-toggle="modal" data-target="#hapus"><i class="fa fa-trash"></i></a>
+					return '<a href="javascript:void(0);" class="detail_record btn btn-success btn-xs btn-flat btn-sm" title="DETAIL" data-id_petugas="'.$d.'"  data-toggle="modal" data-target="#detail'.$d.'"><i class="fa fa-search"></i></a>
+							<a href="javascript:void(0);" class="edit_record btn btn-warning btn-xs btn-flat btn-sm" title="EDIT" data-id_petugas="'.$d.'" data-toggle="modal" data-target="#edit'.$d.'"><i class="fa fa-edit"></i></a>
+							<a href="javascript:void(0);" class="delete_record btn btn-danger btn-xs btn-flat btn-sm" title="HAPUS" data-id_petugas="'.$d.'" data-toggle="modal" data-target="#hapus'.$d.'"><i class="fa fa-trash"></i></a>
 					';
 				}
 			)
