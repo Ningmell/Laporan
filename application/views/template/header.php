@@ -135,8 +135,8 @@
           if ($this->session->userdata('level') == '1') {
           ?>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('Petugas/smua_teller'); ?>">
-              <i class="ni ni-credit-card text-pink"></i> Data Teller
+            <a class="nav-link" href="<?php echo base_url('Petugas/smua_antrian'); ?>">
+              <i class="ni ni-credit-card text-pink"></i> Data Antrian
             </a>
           </li>
           <li class="nav-item">
@@ -149,13 +149,18 @@
               <i class="ni ni-circle-08 text-yellow"></i> Data User
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('Petugas/jenis'); ?>">
+              <i class="ni ni-circle-08 text-yellow"></i> Data Jenis
+            </a>
+          </li>
           <?php
           } else {
             if ($this->session->userdata('id_jenis') == '1') {
               echo '
               <li class="nav-item">
-                <a href="'.base_url('Petugas/').'" class="nav-link">
-                  <i class="ni ni-chart-pie-35 text-blue"></i> Data Administrator
+                <a href="'.base_url('Petugas/detail_servis').'" class="nav-link" data-toggle="modal" data-target="#detail">
+                  <i class="ni ni-chart-pie-35 text-blue"></i> Detail Profil
                 </a>
               </li>
               ';
@@ -216,13 +221,14 @@
       </div>
     </div>
   </nav>
+
   <div class="main-content">
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
         <!-- Brand -->
         <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="<?php echo base_url('argon/'); ?>index.html">Dashboard</a>
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"><?php echo $this->session->userdata('username'); ?></a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"></a>
         <!-- Form 
         <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">
@@ -278,3 +284,27 @@
       </div>
     </nav>
     <!-- End Navbar -->
+    <?php 
+    foreach ($petugas as $key) {
+     ?>
+    <div class="modal fade " id="detail">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Detail</h3>
+          </div>
+          <div class="modal-body">
+            <label for="">Nama : </label><br>
+            <label for="">Userame :</label><br>
+            <label for="">Jenis Kelamin :</label><br>
+            <label for="">Alamat :</label><br>
+            <label for="">Tempat Tanggal Lahir :</label><br>
+            <label for="">Email :</label><br>
+            <label for="">No Ktp :</label><br>
+            <label for="">No HP :</label><br>
+            <label for="">Ket :</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php } ?>

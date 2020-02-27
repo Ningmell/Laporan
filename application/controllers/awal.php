@@ -26,7 +26,7 @@ class awal extends CI_Controller {
 				if (md5($password) == $key['password']) {
 					$this->session->set_userdata($key);
 					if ($key['level'] == '1') {
-						redirect(base_url('Petugas/smua_teller'));
+						redirect(base_url('Petugas/smua_antrian'));
 					} else {
 						if ($key['id_jenis'] == '1') {
 							redirect(base_url('Petugas/'));

@@ -235,7 +235,7 @@
 								</div>
 							</div>
 							<div class="modal-footer">
-								<button class="btn btn-default" data-dismiss="modal">Batal</button>
+								<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 								<button class="btn btn-success" type="submit">Edit</button>
 							</div>
 						</form>
@@ -253,7 +253,7 @@
 				<form method="post" action="<?php echo base_url('Petugas/hapus/'.$key->Id_petugas); ?>">
 				<div class="modal-body">
 					<input class="id-hapus" name="Id_petugas" type="hidden">
-					<p>Anda yakin akan menghapus data <b class="user-hapus">Username</b></p>
+					<p>Anda yakin akan menghapus data <b value="<?php echo $key->username; ?>">Username</b></p>
 				</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -370,22 +370,17 @@ $(document).ready(function () {
 			type: 'POST',
 			data: $('#form_simpan').serialize(),
 			success:function(data){
-				 alert(data);
-
-				if (data == '1') {
-					swal("Good job!", "You clicked the button!", "success");
+				if (data == 'true') {
+					swal('God joob',data,'success');
 					window.location="<?php echo base_url('Petugas/data'); ?>";
-				} //else {
-					//swal("opppsss...", "danger", "danger");
-				//}
-			},
-			error:function (data) {
-				if (data == '0') {
-					swal("oppppsss....", "Nooooo", "danger");
+				} else {
+					swal('Error',data,'error');
 				}
+
 			}
 		});
 		//e.preventDefault();
+		return false;
 	});
 });
 </script>

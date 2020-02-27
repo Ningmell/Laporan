@@ -11,18 +11,26 @@ class petugas extends CI_Controller {
 	{
 		$jenis = $this->session->userdata('id_jenis');
 		$data['antrian'] = $this->model_petugas->data($jenis)->result();
+		$data['petugas'] = $this->model_petugas->detail_profil()->result();
 		$this->load->view('petugas',$data);
 	}
 	public function teller()
 	{
 		$jenis = $this->session->userdata('id_jenis');
 		$data['antrian'] = $this->model_petugas->data_t($jenis)->result();
+		$data['petugas'] = $this->model_petugas->detail_profil()->result();
 		$this->load->view('petugas',$data);
 	}
-	public function smua_teller()
+	public function smua_antrian()
 	{
 		$data['antrian'] = $this->model_petugas->smua_data()->result();
+		$data['petugas'] = $this->model_petugas->detail_profil()->result();
 		$this->load->view('petugas',$data);
+	}
+	public function detail_servis()
+	{
+		$data['petugas'] = $this->model_petugas->detail_profil()->result();
+		$this->load->view('detail_profil', $data);
 	}
 	public function ganti($status)
 	{
@@ -64,6 +72,41 @@ class petugas extends CI_Controller {
 		$id_jenis = $this->input->post('id_jenis');
 		$level = $this->input->post('level');
 
+		// if (empty($nama)) {
+		// 	$pesan = "nama harus diisi.";
+		// 	goto gagal;
+		// } else if (empty($username)) {
+		// 	$pesan = "username harus diisi.";
+		// 	goto gagal;
+		// } else if (empty($password)) {
+		// 	$pesan = "password harus diisi.";
+		// 	goto gagal;
+		// } else if (empty($jk)) {
+		// 	$pesan = "jk harus diisi.";
+		// 	goto gagal;
+		// } else if (empty($alamat)) {
+		// 	$pesan = "alamat harus diisi.";
+		// 	goto gagal;
+		// } else if (empty($ttl)) {
+		// 	$pesan = "ttl harus diisi.";
+		// 	goto gagal;
+		// } else if (empty($email)) {
+		// 	$pesan = "email harus diisi.";
+		// 	goto gagal;
+		// } else if (empty($ktp)) {
+		// 	$pesan = "ktp harus diisi.";
+		// 	goto gagal;
+		// } else if (empty($hp)) {
+		// 	$pesan = "hp harus diisi.";
+		// 	goto gagal;
+		// } else if (empty($id_jenis)) {
+		// 	$pesan = "id_jenis harus diisi.";
+		// 	goto gagal;
+		// } else if (empty($level)) {
+		// 	$pesan = "level harus diisi.";
+		// 	goto gagal;
+		// }
+
 		$data = array(
 			'Id_petugas' => '',
 			'nama' => $nama,
@@ -78,21 +121,11 @@ class petugas extends CI_Controller {
 			'id_jenis' => $id_jenis,
 			'level' => $level
 		);
+		$pesan = true;
 
-		 $this->model_petugas->save_petugas($data);
-		//if ($tes) {
-		//	echo "1";
-		//} else {
-			// echo "<input type='hidden' id='berhasil' value='0'>";
-		/*	?>
-			<script type="text/javascript">
-				Swal.fire('Gagal','errorr','danger').then(function () {
-					window.location="<?php echo base_url('Petugas/'); ?>"
-				})
-			</script>
-			<?php
-		}
-		// redirect(base_url('Petugas/data'));*/
+		$this->model_petugas->save_petugas($data);
+		gagal:
+		echo json_encode($pesan);
 	}
 	public function edit()
 	{
@@ -122,11 +155,16 @@ class petugas extends CI_Controller {
 	}
 	public function hapus()
 	{
-		$id = $this->input->post('Id_petugas');
+		$id = $this->uri->segment(3);
 		$where = array('Id_petugas' => $id );
 		$this->model_petugas->hapus_data('petugas',$where);
 		$this->session->set_flashdata('pesan', 'Berhasil di hapus');
 		redirect(base_url('Petugas/data'));
+	}
+	public function jenis()
+	{
+		$data['jenis'] = $this->model_petugas->data_jenis()->result();
+		$this->load->view('view_jenis', $data);
 	}
 	public function ssp_petugas()
 	{

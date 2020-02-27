@@ -194,7 +194,7 @@
                     </div>
                     <select name="id_jenis" class="form-control">
                       <option value="">--- jenis antrian ---</option>
-                      <option value="1">Administrator</option>
+                      <option value="1">Costumer Server</option>
                       <option value="2">Teller</option>
                     </select>
                   </div>

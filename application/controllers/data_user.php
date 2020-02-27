@@ -12,8 +12,8 @@ class data_user extends CI_Controller {
 	{
 		//$jenis = $this->input->post('id_jenis'=> $id);
 		//$jenis = array('id_jenis' => $id );
-		$data['tellerA'] = $this->model_user->antrian('1')->num_rows();
-		$data['tellerB'] = $this->model_user->antrian('2')->num_rows();
+		$data['cosserver'] = $this->model_user->antrian('1')->num_rows();
+		$data['teller'] = $this->model_user->antrian('2')->num_rows();
 		//$data['jml'] = $this->mdl->antrian()->num_rows();
 		$this->load->view('user',$data);
 	}
@@ -68,7 +68,12 @@ class data_user extends CI_Controller {
 			'hp' => $hp
 		);
 
-		$this->model_user->save_data($data);
+		$tes = $this->model_user->save_data($data);
+		if ($tes) {
+			echo json_encode('1');
+		} else {
+			echo json_encode('0');
+		}
 	}
 	public function update()
 	{

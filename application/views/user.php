@@ -68,8 +68,8 @@
     <!-- Header -->
     <?php
      //$kode = "A-".($jml+1);
-    $tellerA= "A-".($tellerA+1);
-    $tellerB = "B-".($tellerB+1);
+    $cosserver= "A-".($cosserver+1);
+    $teller = "B-".($teller+1);
     ?>
     <div class="header bg-gradient-primary py-7 py-lg-8">
       <div class="container">
@@ -97,8 +97,8 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-10">Teller</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo $tellerA; ?></span>
+                      <h5 class="card-title text-uppercase text-muted mb-10">Costomer Server</h5>
+                      <span class="h2 font-weight-bold mb-0"><?php echo $cosserver; ?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -122,7 +122,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-10">Teller</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php echo $tellerB; ?></span>
+                      <span class="h2 font-weight-bold mb-0"><?php echo $teller; ?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -148,12 +148,12 @@
                 <h3>Daftar Antrian</h3>
               </div>
               <div class="modal-body">
-                <form method="post" action="<?php echo base_url('data_user/daftar/'.$tellerA); ?>">
+                <form method="post" action="<?php echo base_url('data_user/daftar/'.$cosserver); ?>">
                 <div class="form-group" align="center">
                     <img src="<?php echo base_url('mitra.png') ?>" width="200">
                 </div>
-                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $tellerA; ?>">
-                <input type="hidden" name="id-daftar" value="<?php echo $tellerA; ?>">
+                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $cosserver; ?>">
+                <input type="hidden" name="id-daftar" value="<?php echo $cosserver; ?>">
               </div>
               <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal">Batal</button>
@@ -170,12 +170,12 @@
                 <h3>Daftar Antrian Teller</h3>
               </div>
               <div class="modal-body">
-                <form method="post" action="<?php echo base_url('data_user/teller/'.$tellerB); ?>">
+                <form method="post" action="<?php echo base_url('data_user/teller/'.$teller); ?>">
                 <div class="form-group" align="center">
                     <img src="<?php echo base_url('mitra.png') ?>" width="200">
                 </div>
-                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $tellerB; ?>">
-                <input type="hidden" name="id-info" value="<?php echo $tellerB; ?>">
+                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $teller; ?>">
+                <input type="hidden" name="id-info" value="<?php echo $teller; ?>">
               </div>
               <div class="modal-footer">
                 <button class="btn btn-default" data-dismiss="modal">Batal</button>
