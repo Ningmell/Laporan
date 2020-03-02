@@ -161,11 +161,6 @@ class petugas extends CI_Controller {
 		$this->session->set_flashdata('pesan', 'Berhasil di hapus');
 		redirect(base_url('Petugas/data'));
 	}
-	public function jenis()
-	{
-		$data['jenis'] = $this->model_petugas->data_jenis()->result();
-		$this->load->view('view_jenis', $data);
-	}
 	public function ssp_petugas()
 	{
 		//$sess_login = $this->session->userdata('login');

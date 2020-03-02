@@ -150,8 +150,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('Petugas/jenis'); ?>">
-              <i class="ni ni-circle-08 text-yellow"></i> Data Jenis
+            <a class="nav-link" href="<?php echo base_url('jenis/'); ?>">
+              <i class="ni ni-books text-success"></i> Data Jenis
             </a>
           </li>
           <?php

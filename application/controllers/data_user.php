@@ -6,6 +6,7 @@ class data_user extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('model_user');
+		$this->load->model('model_petugas');
 	}
 
 	public function index()
@@ -46,6 +47,7 @@ class data_user extends CI_Controller {
 	public function data()
 	{
 		$data['coustumer'] = $this->model_user->data_customer()->result();
+		$data['petugas'] = $this->model_petugas->detail_profil()->result();
 		$this->load->view('view_dataUser', $data);
 	}
 	public function tambah_data()
