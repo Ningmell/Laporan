@@ -278,8 +278,7 @@
 					<label>Tempat Tanggal Lahir : <?= $key->ttl; ?></label>
 				</div>
 				<div class="modal-footer">
-					<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
-					<button class="btn btn-success" type="submit">Kembali</button>
+					<button class="btn btn-danger" data-dismiss="modal">Kembali</button>
 				</div>
 			</div>
 		</div>

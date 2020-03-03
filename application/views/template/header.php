@@ -20,7 +20,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>
-    Argon Dashboard - Free Dashboard for Bootstrap 4 by Creative Tim
+    Antrian Online
   </title>
   <!-- Favicon -->
   <link href="<?php echo base_url('argon/'); ?>assets/img/brand/favicon.png" rel="icon" type="image/png">
@@ -285,6 +285,7 @@
     </nav>
     <!-- End Navbar -->
     <?php 
+   // echo $_SESSION['Id_petugas'];
     foreach ($petugas as $key) {
      ?>
     <div class="modal fade " id="detail">
@@ -294,15 +295,31 @@
             <h3>Detail</h3>
           </div>
           <div class="modal-body">
-            <label for="">Nama : </label><br>
-            <label for="">Userame :</label><br>
-            <label for="">Jenis Kelamin :</label><br>
-            <label for="">Alamat :</label><br>
-            <label for="">Tempat Tanggal Lahir :</label><br>
-            <label for="">Email :</label><br>
-            <label for="">No Ktp :</label><br>
-            <label for="">No HP :</label><br>
-            <label for="">Ket :</label>
+            <label for="">Nama : <?=$key->nama?></label><br>
+            <label for="">Userame : <?=$key->username?></label><br>
+            <label for="">Jenis Kelamin : <?=$key->jk?></label><br>
+            <label for="">Alamat : <?=$key->alamat?></label><br>
+            <label for="">Tempat Tanggal Lahir : <?=$key->ttl?></label><br>
+            <label for="">Email : <?=$key->email?></label><br>
+            <label for="">No Ktp : <?=$key->no_ktp?></label><br>
+            <label for="">No HP : <?=$key->hp?></label><br>
+            <label for="">Ket : <?=$key->ket?></label>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <button class="btn btn-success" data-toggle="modal" data-target="#edit_profil">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade " id="edit_profil">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            Data Edit
+          </div>
+          <div class="modal-body">
+            
           </div>
         </div>
       </div>

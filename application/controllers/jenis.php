@@ -12,8 +12,21 @@ class jenis extends CI_Controller {
 	public function index()
 	{
 		$data['jenis'] = $this->model_jenis->data_jenis()->result();
-		$data['petugas'] = $this->model_petugas->detail_profil()->result();
+		$id =$_SESSION['Id_petugas'];
+		$data['petugas'] = $this->model_petugas->detail_profil($id)->result();
 		$this->load->view('view_jenis', $data);
+	}
+	public function tambah()
+	{
+		$id_jenis = $this->input->post('id_jenis'); 
+		$jenis = $this->input->post('jenis_antrian'); 
+		$ket = $this->input->post('ket');
+
+		$data = array('jenis_antrian' => $jenis, 'ket' => $ket);
+		$where = array('id_jenis' => $jenis );
+
+		$this->model_jenis->add($data,$where);
+		redirect(base_url('jenis/')); 
 	}
 	public function ssp_jenis()
 	{
@@ -29,8 +42,8 @@ class jenis extends CI_Controller {
 			array('db' => 'id_jenis', 'dt' => 4,
 				'formatter' => function ($d,$row)
 				{
-					return ?><a href="javascript:void(0);" class="edit_record btn btn-warning btn-flat btn-sm" data-id_jenis="'.$d.'" data-toggle="modal" data-target="#edit'.$d.'"><i class="fa fa-edit"></i></a>
-					<a href="javascript:void(0);" class="delete_record btn btn-danger btn-sm btn-flat" title="DELETE" data-id_costumer="'.$d.'"  data-toggle="modal" data-target="#hapus'.$d.'"><i class="fa fa-trash"></i</a><?php
+					return '<a href="javascript:void(0);" class="edit_record btn btn-warning btn-flat btn-sm" title="EDIT" data-id_jenis="'.$d.'" data-toggle="modal" data-target="#edit'.$d.'"><i class="fa fa-edit"></i></a>
+					<a href="javascript:void(0);" class="delete_record btn btn-danger btn-sm btn-flat" title="DELETE" data-id_costumer="'.$d.'" data-toggle="modal" data-target="#hapus'.$d.'"><i class="fa fa-trash"></i</a>'
 					;
 				}
 			)

@@ -46,9 +46,10 @@ class model_petugas extends CI_Model {
 	{
 		$this->db->delete($tabel, $where);
 	}
-	public function detail_profil()
+	public function detail_profil($value)
 	{
-		return $this->db->get('petugas');
+
+		return $this->db->get_where('petugas', array('id_petugas' => $value ));
 	}
 	public function get_sql_details()
 	{

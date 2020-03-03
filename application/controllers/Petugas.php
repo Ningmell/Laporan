@@ -11,25 +11,29 @@ class petugas extends CI_Controller {
 	{
 		$jenis = $this->session->userdata('id_jenis');
 		$data['antrian'] = $this->model_petugas->data($jenis)->result();
-		$data['petugas'] = $this->model_petugas->detail_profil()->result();
+		$id =$_SESSION['Id_petugas'];
+		$data['petugas'] = $this->model_petugas->detail_profil($id)->result();
 		$this->load->view('petugas',$data);
 	}
 	public function teller()
 	{
 		$jenis = $this->session->userdata('id_jenis');
 		$data['antrian'] = $this->model_petugas->data_t($jenis)->result();
-		$data['petugas'] = $this->model_petugas->detail_profil()->result();
+		$id =$_SESSION['Id_petugas'];
+		$data['petugas'] = $this->model_petugas->detail_profil($id)->result();
 		$this->load->view('petugas',$data);
 	}
 	public function smua_antrian()
 	{
 		$data['antrian'] = $this->model_petugas->smua_data()->result();
-		$data['petugas'] = $this->model_petugas->detail_profil()->result();
+		$id =$_SESSION['Id_petugas'];
+		$data['petugas'] = $this->model_petugas->detail_profil($id)->result();
 		$this->load->view('petugas',$data);
 	}
 	public function detail_servis()
 	{
-		$data['petugas'] = $this->model_petugas->detail_profil()->result();
+		$id =$_SESSION['Id_petugas'];
+		$data['petugas'] = $this->model_petugas->detail_profil($id)->result();
 		$this->load->view('detail_profil', $data);
 	}
 	public function ganti($status)

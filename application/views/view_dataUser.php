@@ -206,6 +206,28 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal fade " id="detail<?=$key->id_costumer?>">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					Detail Data
+				</div>
+				<div class="modal-body">
+					<label for="">Id : <?=$key->id_costumer?></label><br>
+					<label for="">Nama : <?=$key->nama?></label><br>
+					<label for="">Username : <?=$key->username?></label><br>
+					<label for="">Email : <?=$key->email?></label><br>
+					<label for="">Alamat : <?=$key->alamat?></label><br>
+					<label for="">Tempat Tanggal Lahir : <?=$key->ttl?></label><br>
+					<label for="">No Hp : <?=$key->hp?></label><br>
+					<label for="">No Ktp : <?=$key->no_ktp?></label>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-danger" data-dismiss="modal">Kembali</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<?php } ?>
 </div>
 <?php include 'template/footer.php'; ?>

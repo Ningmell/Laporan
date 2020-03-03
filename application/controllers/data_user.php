@@ -13,8 +13,16 @@ class data_user extends CI_Controller {
 	{
 		//$jenis = $this->input->post('id_jenis'=> $id);
 		//$jenis = array('id_jenis' => $id );
-		$data['cosserver'] = $this->model_user->antrian('1')->num_rows();
-		$data['teller'] = $this->model_user->antrian('2')->num_rows();
+		$row = $this->model_user->row_data()->num_rows();
+		$data_antri = $this->model_user->row_data()->result();
+		foreach ($data_antri as $yu) {
+			$data[$yu->jenis_antrian] = $this->model_user->antrian($yu->id_jenis)->num_rows();
+		}
+		// for ($i=1; $i <= $row ; $i++) {
+			// $data[$i] = $this->model_user->antrian($i)->num_rows();
+			// $data['teller'] = $this->model_user->antrian('2')->num_rows();
+		// }
+		$data['row'] = $this->model_user->row_data()->result();
 		//$data['jml'] = $this->mdl->antrian()->num_rows();
 		$this->load->view('user',$data);
 	}
@@ -47,7 +55,8 @@ class data_user extends CI_Controller {
 	public function data()
 	{
 		$data['coustumer'] = $this->model_user->data_customer()->result();
-		$data['petugas'] = $this->model_petugas->detail_profil()->result();
+		$id =$_SESSION['Id_petugas'];
+		$data['petugas'] = $this->model_petugas->detail_profil($id)->result();
 		$this->load->view('view_dataUser', $data);
 	}
 	public function tambah_data()
@@ -91,7 +100,7 @@ class data_user extends CI_Controller {
 		$data = array(
 			'nama' => $nama,
 			'username' => $username,
-			'password' => $password,
+			'password' => md5($password),
 			'alamat' => $alamat,
 			'ttl' => $ttl,
 			'email' => $email,
@@ -140,6 +149,11 @@ class data_user extends CI_Controller {
 		echo json_encode(
 			SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns)
 		);
+	}
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('user/');
 	}
 
 }

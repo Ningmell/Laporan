@@ -9,6 +9,10 @@ class Model_jenis extends CI_Model {
 	{
 		return $this->db->get('jenis');
 	}
+	public function add($data,$where)
+	{
+		$this->db->insert('jenis', $data, $where);
+	}
 	public function get_sql_detail()
 	{
 		return array(

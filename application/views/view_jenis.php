@@ -25,6 +25,58 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="modal fade " id="tambah">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					Tambah Data
+				</div>
+				<div class="modal-body">
+					<form action="<?php echo base_url('jenis/tambah'); ?>">
+						<input type="hidden" name="id_jenis">
+						<div class="form-group">
+							<div class="input-group input-group-alternative mb-3">
+                    		<div class="input-group-prepend">
+                      			<span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                    		</div>
+                    			<input type="text" name="jenis_antrian" placeholder="Nama Jenis" required="required" class="form-control">
+                  			</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group input-group-alternative mb-3">
+                    		<div class="input-group-prepend">
+                      			<span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                    		</div>
+                    			<input type="text" name="ket" placeholder="Keterangan" required="required" class="form-control">
+                  			</div>
+						</div>
+						<div class="modal-footer">
+						<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
+						<button class="btn btn-success" type="submit">Tambah</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<?php 
+	foreach ($jenis as $key) {
+	 ?>
+	<div class="modal fade " id="hapus<?=$key->id_jenis?>">
+		<div class="modal-dialog">
+			<div class="modal-content">
+					<div class="modal-header">
+						Hapus Data
+					</div>
+					<div class="modal-body">
+						
+					</div>
+			</div>
+		</div>
+	</div>
+	<?php } ?>
 </div>
 <?php include 'template/footer.php'; ?>
 <script type="text/javascript">

@@ -13,6 +13,10 @@ class model_user extends CI_Model {
 	{
 		$this->db->insert('antrian', $data);
 	}
+	public function row_data()
+	{
+		return $this->db->get('jenis');
+	}
 	public function data_teller($teller)
 	{
 		$this->db->insert('antrian',$teller);
