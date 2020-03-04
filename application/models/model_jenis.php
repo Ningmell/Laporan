@@ -13,6 +13,10 @@ class Model_jenis extends CI_Model {
 	{
 		$this->db->insert('jenis', $data, $where);
 	}
+	public function hapus_data($table, $where)
+	{
+		$this->db->delete('jenis', $where);
+	}
 	public function get_sql_detail()
 	{
 		return array(

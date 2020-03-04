@@ -28,6 +28,13 @@ class jenis extends CI_Controller {
 		$this->model_jenis->add($data,$where);
 		redirect(base_url('jenis/')); 
 	}
+	public function hapus()
+	{
+		$id = $this->uri->segment(3);
+		$where = array('id_jenis' => $id );
+		$this->model_jenis->hapus_data('jenis',$where);
+		redirect(base_url('jenis/'));
+	}
 	public function ssp_jenis()
 	{
 		$sql_details = $this->model_jenis->get_sql_detail();

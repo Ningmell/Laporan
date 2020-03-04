@@ -80,12 +80,7 @@
     // for ($i=1; $i <= $row ; $i++) { 
      // var_dump($teller);
      // }-->
-    <?php
-    foreach ($row as $isi) {
-      $hho = $this->model_user->antrian($isi->id_jenis)->num_rows();
-      echo $hho+1;
-    ?>
-    <div class="header bg-gradient-primary py-7 py-lg-8">
+     <div class="header bg-gradient-primary py-7 py-lg-8">
       <div class="container">
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
@@ -102,16 +97,23 @@
         </svg>
       </div>
     </div>
+    <div class="container mt--9">
+        
+    <?php
+    foreach ($row as $isi) {
+      $hho = $this->model_user->antrian($isi->id_jenis)->num_rows();
+      // echo $hho+1;
+    ?>
+    
     <!-- Page content -->
     
-      <div class="container mt--9 pb-5">
-        <div class="row justify-content">
-           <div class="col-xl-6">
-              <div class="card card-stats mb-4 mb-xl-0">
+          <div class="row justify-content col-md-6">
+           <div class="col-xl-12 col-md-12">
+              <div class="card">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-10">Costomer Server</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-10"><?=$isi->jenis_antrian?></h5>
                       <span class="h2 font-weight-bold mb-0"><?php echo $hho; ?></span>
                     </div>
                     <div class="col-auto">
@@ -126,9 +128,32 @@
                   </p>
                 </div>
                 <div class="card-footer">
-                  <button class="btn btn-success btn-block" data-toggle="modal" data-target="#daftar">Antri</button>
+                  <button class="btn btn-success btn-block" data-toggle="modal" data-target="#daftar<?=$hho?>">Antri</button>
+                  <div class="modal fade" id="daftar<?=$hho?>">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3>Daftar Antrian</h3>
+                      </div>
+                      <div class="modal-body">
+                        <form method="post" action="<?php echo base_url('data_user/daftar/'.$hho.'/'.$isi->id_jenis); ?>">
+                        <div class="form-group" align="center">
+                            <img src="<?php echo base_url('mitra.png') ?>" width="200">
+                        </div>
+                        <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $hho; ?>">
+                        <input type="hidden" name="id-daftar" value="<?php echo $hho; ?>">
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal">Batal</button>
+                        <button class="btn btn-success" type="submit">Daftar</button>
+                        </form>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 </div>
               </div>
+            </div>
             </div>
             <!--<div class="col-xl-6">
               <div class="card card-stats mb-4 mb-xl-0">
@@ -154,29 +179,8 @@
                 </div>
               </div>
             </div>-->
-        </div>
-        <div class="modal fade" id="daftar">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h3>Daftar Antrian</h3>
-              </div>
-              <div class="modal-body">
-                <form method="post" action="<?php echo base_url('data_user/daftar/'.$hho); ?>">
-                <div class="form-group" align="center">
-                    <img src="<?php echo base_url('mitra.png') ?>" width="200">
-                </div>
-                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $hho; ?>">
-                <input type="hidden" name="id-daftar" value="<?php echo $hho; ?>">
-              </div>
-              <div class="modal-footer">
-                <button class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button class="btn btn-success" type="submit">Daftar</button>
-                </form>  
-              </div>
-            </div>
-          </div>
-        </div>
+        
+        
         <!--<div class="modal fade" id="info">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -199,8 +203,9 @@
             </div>
           </div>
         </div>-->
-    </div>
     <?php } ?>
+    
+    </div>
     <footer class="py-5">
       <div class="container">
         

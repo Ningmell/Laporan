@@ -67,12 +67,55 @@
 	<div class="modal fade " id="hapus<?=$key->id_jenis?>">
 		<div class="modal-dialog">
 			<div class="modal-content">
-					<div class="modal-header">
-						Hapus Data
-					</div>
+				<div class="modal-header">
+					Hapus Data
+				</div>
+				<form action="<?=base_url('jenis/hapus/'.$key->id_jenis);?>">
 					<div class="modal-body">
-						
+						<input type="hidden" class="id-hapus" name="id_jenis">
+						<p>
+							Anda Yakin Akan Menghapus data <b value="<?=$key->jenis_antrian;?>">Username</b>
+						</p>
+						<div class="modal-footer">
+							<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
+							<button class="btn btn-danger" type="submit">Hapus</button>
+						</div>
 					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade " id="edit<?=$key->id_jenis?>">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					Edit Data
+				</div>
+				<div class="modal-body">
+					<form action="<?=base_url('jenis/update/'.$key->id_jenis)?>">
+						<input type="hidden" name="id_jenis" class="id-edit">
+						<div class="form-group">
+							<div class="input-group input-group-alternative mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ni ni-single-02"></i></span>
+								</div>
+									<input class="form-control" name="jenis_antrian" type="text" placeholder="Nama Jenis" value="<?=$key->jenis_antrian?>">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group input-group-alternative mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ni ni-single-02"></i></span>
+								</div>
+									<input class="form-control" name="ket" type="text" placeholder="Keterangan" value="<?=$key->ket?>">
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
+							<button class="btn btn-info" type="submit">Simpan</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>

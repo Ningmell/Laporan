@@ -26,18 +26,33 @@ class data_user extends CI_Controller {
 		//$data['jml'] = $this->mdl->antrian()->num_rows();
 		$this->load->view('user',$data);
 	}
-	public function daftar($a)
+	public function daftar()
 	{
-		$data = array('id_antrian' => $a, 'id_costumer' => $this->session->userdata('username'), 'id_jenis' => '1');
+		$kode = ["","A","B","C","D","E"];
+		$nomr = $this->uri->segment(3)+1;
+		if (strlen($nomr) == "1") {
+			$urut = "00".$nomr;
+		}elseif (strlen($nomr) == "2") {
+			$urut = "0".$nomr;
+		}elseif (strlen($nomr) == "3") {
+			$urut = $nomr;
+		}else{
+			$urut = $nomr;
+		}
+		$id_jenis   = $this->uri->segment(4);
+		$id_antrian = $kode[$id_jenis]."-".$urut;
+		
+		$data = array('id_antrian' => $id_antrian, 'id_costumer' => $this->session->userdata('username'), 'id_jenis' => $id_jenis);
 		$this->model_user->tambah_antrian($data);
-
+		$jenis_antrian = $this->input->post('jenis_antrian');
 		$array = array(
-			'id_antrian' => $a
+			'id_antrian' => $id_antrian,
+			'jenis_antrian' => $jenis_antrian
 		);
 		$this->session->set_userdata( $array );
 		redirect(base_url('data_user/antrian_user'));
 	}
-	public function teller($b)
+	/*public function teller($b)
 	{
 		$data = array('id_antrian' => $b, 'id_costumer' => $this->session->userdata('username'), 'id_jenis' => '2');
 		$this->model_user->data_teller($data);
@@ -47,7 +62,7 @@ class data_user extends CI_Controller {
 		);
 		$this->session->set_userdata( $array );
 		redirect(base_url('data_user/antrian_user'));
-	}
+	}*/
 	public function antrian_user()
 	{
 		$this->load->view('user_antri');

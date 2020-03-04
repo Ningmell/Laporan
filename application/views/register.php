@@ -143,14 +143,8 @@
                  }
 
                  ?>
-                <div class="form-group">
-                  <div class="input-group input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-key-25"></i></span>
-                    </div>
-                    <input type="hidden" name="id_costumer">
-                  </div>
-                </div>
+                
+                <input type="hidden" name="id_costumer">
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">

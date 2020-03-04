@@ -102,7 +102,7 @@
                         </div>
                       </div>
                       <p class="card-header text-center border-0 pt-8 pt-md-7 pb-0 pb-md-4">
-                      <h5 class="card-title-center text-uppercase text-muted mb-10"><h2>Teller</h2></h5>
+                      <h5 class="card-title-center text-uppercase text-muted mb-10"><h2><?php echo $this->session->userdata('jenis_antrian'); ?></h2></h5>
                       <span class="h2 font-weight-bold mb-0"><?php ?></span>
                       </p>
                     </div>
@@ -114,7 +114,7 @@
                   </p>
                 </div>
                 <div class="card-footer">
-                  <button class="btn btn-block btn-info">Info</button>
+                  <!--<button class="btn btn-block btn-info">Info</button>-->
                 </div>
               </div>
             </div>
