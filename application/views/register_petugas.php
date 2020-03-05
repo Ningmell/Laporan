@@ -62,8 +62,8 @@
             </div>
           </div>
           <!-- Navbar items -->
-          <!--<ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+          <ul class="navbar-nav ml-auto">
+            <!--<li class="nav-item">
               <a class="nav-link nav-link-icon" href="<?php //echo base_url('argon/'); ?>index.html">
                 <i class="ni ni-planet"></i>
                 <span class="nav-link-inner--text">Dashboard</span>
@@ -74,21 +74,21 @@
                 <i class="ni ni-circle-08"></i>
                 <span class="nav-link-inner--text">Register</span>
               </a>
-            </li>
+            </li>-->
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="<?php //echo base_url('argon/'); ?>examples/login.html">
+              <a class="nav-link nav-link-icon" href="<?php echo base_url('awal/'); ?>">
                 <i class="ni ni-key-25"></i>
                 <span class="nav-link-inner--text">Login</span>
               </a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a class="nav-link nav-link-icon" href="<?php //echo base_url('argon/'); ?>examples/profile.html">
                 <i class="ni ni-single-02"></i>
                 <span class="nav-link-inner--text">Profile</span>
               </a>
             </li>
-          </ul>
-        --></div>
+          --></ul>
+        </div>
       </div>
     </nav>
     <!-- Header -->
@@ -143,14 +143,7 @@
                   ';
                  } 
                  ?>
-                <div class="form-group">
-                  <div class="input-group input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-key-25"></i></span>
-                    </div>
                     <input type="hidden" name="id_petugas">
-                  </div>
-                </div>
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
@@ -194,8 +187,9 @@
                     </div>
                     <select name="id_jenis" class="form-control">
                       <option value="">--- jenis antrian ---</option>
-                      <option value="1">Costumer Server</option>
-                      <option value="2">Teller</option>
+                      <?php foreach ($jenis as $key) {?>
+                      <option value="<?=$key->id_jenis?>"><?=$key->jenis_antrian?></option>
+                      <?php } ?>
                     </select>
                   </div>
                 </div>

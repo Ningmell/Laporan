@@ -30,6 +30,10 @@ class model_petugas extends CI_Model {
 	{
 		return $this->db->get('petugas');
 	}
+	public function select_jenis()
+	{
+		return $this->db->get('jenis');
+	}
 	public function save_petugas($data)
 	{
 		$this->db->insert('petugas', $data);

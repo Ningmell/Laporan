@@ -135,8 +135,9 @@
                     			</div>
                     			<select name="id_jenis" class="form-control">
                       				<option value="">--- jenis antrian ---</option>
-                      				<option value="1">Administrator</option>
-                      				<option value="2">Teller</option>
+                    				<?php foreach ($jenis as $key) { ?>
+                      				<option value="<?=$key->id_jenis ?>"><?=$key->jenis_antrian;?></option>
+                    				<?php } ?>
                     			</select>
                   			</div>
                 		</div>
@@ -153,8 +154,8 @@
                   			</div>
                 		</div>
                 	<div class="modal-footer">
-                		<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 		<button class="btn btn-info" type="submit" id="tbl_simpan">Simpan</button>
+                		<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 	</div>
 					</form>
 				</div>
@@ -235,8 +236,8 @@
 								</div>
 							</div>
 							<div class="modal-footer">
-								<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 								<button class="btn btn-success" type="submit">Edit</button>
+								<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 							</div>
 						</form>
 					</div>
@@ -256,8 +257,8 @@
 					<p>Anda yakin akan menghapus data <b value="<?php echo $key->username; ?>">Username</b></p>
 				</div>
 				<div class="modal-footer">
-					<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 					<button class="btn btn-danger" type="submit">Hapus</button>
+					<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 				</div>
 				</form>
 			</div>

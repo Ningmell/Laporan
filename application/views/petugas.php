@@ -12,10 +12,12 @@
             			<thead class="thead-dark">
                             <tr>
                 				<th scope="col">No</th>
+                                <th scope="col">Waktu</th>
                 				<th scope="col">Kode Antrian</th>
                 				<th scope="col">Pendding</th>
                 				<th scope="col">Proses</th>
                                 <th scope="col">Selesai</th>
+                                <th scope="col">Waktu Selesai</th>
                 			</tr>
                         </thead>
                         <tbody>
@@ -24,6 +26,7 @@
             			 ?>
             			 <tr>
             			 	<td align="center"><?php echo $no++; ?></td>
+                            <td><?=$isi->tgl?></td>
                             <td class="id"><?php echo $isi->id_antrian; ?></td>
                             <?php  
                             if ($isi->status=='1') {
@@ -59,6 +62,7 @@
                             }
                             ?>
                             <td class="stts" hidden="true"><?php echo $isi->status; ?></td>
+                            <td><?=$isi->ket_selesai?></td>
                          </tr>
                          <?php } ?>
                         </tbody>
@@ -79,8 +83,8 @@
                     <p>Anda yakin memproses data dengan id <b class="id-proses">id-antrian</b></p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal">Batal</button>
                     <button class="btn btn-primary" type="submit">Iya</button>
+                    <button class="btn btn-default" data-dismiss="modal">Batal</button>
                 </div>
                 </form>
             </div>
@@ -99,8 +103,8 @@
                     <p>Anda yakin menyelesaikan data dengan id <b class="id-selesai">id-antrian</b></p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal">Batal</button>
                     <button class="btn btn-primary" type="submit">Iya</button>
+                    <button class="btn btn-default" data-dismiss="modal">Batal</button>
                 </div>
                 </form>
             </div>

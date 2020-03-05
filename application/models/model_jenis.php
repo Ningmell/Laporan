@@ -9,7 +9,7 @@ class Model_jenis extends CI_Model {
 	{
 		return $this->db->get('jenis');
 	}
-	public function add($data,$where)
+	public function tambah($data,$where)
 	{
 		$this->db->insert('jenis', $data, $where);
 	}

@@ -14,6 +14,7 @@
 								<th scope="col">Nama Jenis<input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
 								<th scope="col">Id Jenis<input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
 								<th scope="col">Ket</th>
+								<th scope="col">Waktu</th>
 								<th scope="col">Aksi</th>
 							</tr>
 						</thead>
@@ -40,7 +41,7 @@
                     		<div class="input-group-prepend">
                       			<span class="input-group-text"><i class="ni ni-single-02"></i></span>
                     		</div>
-                    			<input type="text" name="jenis_antrian" placeholder="Nama Jenis" required="required" class="form-control">
+                    			<input type="text" name="jenis_antrian" placeholder="Nama Jenis" class="form-control">
                   			</div>
 						</div>
 						<div class="form-group">
@@ -48,12 +49,20 @@
                     		<div class="input-group-prepend">
                       			<span class="input-group-text"><i class="ni ni-single-02"></i></span>
                     		</div>
-                    			<input type="text" name="ket" placeholder="Keterangan" required="required" class="form-control">
+                    			<input type="text" name="ket" placeholder="Keterangan" class="form-control">
+                  			</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group input-group-alternative mb-3">
+                    		<div class="input-group-prepend">
+                      			<span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                    		</div>
+                    			<input type="text" name="waktu" placeholder="Waktu" class="form-control">
                   			</div>
 						</div>
 						<div class="modal-footer">
-						<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 						<button class="btn btn-success" type="submit">Tambah</button>
+						<button class="btn btn-secondary" data-dismiss="modal" type="reset">Batal</button>
 					</div>
 					</form>
 				</div>
@@ -74,11 +83,11 @@
 					<div class="modal-body">
 						<input type="hidden" class="id-hapus" name="id_jenis">
 						<p>
-							Anda Yakin Akan Menghapus data <b value="<?=$key->jenis_antrian;?>">Username</b>
+							Anda Yakin Akan Menghapus data <b value="<?=$key->jenis_antrian;?>"></b>
 						</p>
 						<div class="modal-footer">
-							<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 							<button class="btn btn-danger" type="submit">Hapus</button>
+							<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 						</div>
 					</div>
 				</form>
@@ -110,9 +119,18 @@
 									<input class="form-control" name="ket" type="text" placeholder="Keterangan" value="<?=$key->ket?>">
 							</div>
 						</div>
+
+						<div class="form-group">
+							<div class="input-group input-group-alternative mb-3">
+                    		<div class="input-group-prepend">
+                      			<span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                    		</div>
+                    			<input type="time" name="waktu" placeholder="Waktu" required="required" class="form-control">
+                  			</div>
+						</div>
 						<div class="modal-footer">
-							<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 							<button class="btn btn-info" type="submit">Simpan</button>
+							<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 						</div>
 					</form>
 				</div>

@@ -9,6 +9,10 @@ class model_loginPetugas extends CI_Model {
 		$this->db->where($where);
 		return $this->db->get('petugas');
 	}
+	function select_jenis()
+	{
+		return $this->db->get('jenis');
+	}
 	function reg_petugas()
 	{
 		return $this->db->get('petugas');

@@ -140,12 +140,12 @@
                         <div class="form-group" align="center">
                             <img src="<?php echo base_url('mitra.png') ?>" width="200">
                         </div>
-                        <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $hho; ?>">
+                        <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php echo $hho+1; ?>">
                         <input type="hidden" name="id-daftar" value="<?php echo $hho; ?>">
                       </div>
                       <div class="modal-footer">
-                        <button class="btn btn-default" data-dismiss="modal">Batal</button>
                         <button class="btn btn-success" type="submit">Daftar</button>
+                        <button class="btn btn-default" data-dismiss="modal">Batal</button>
                         </form>  
                       </div>
                     </div>

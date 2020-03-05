@@ -54,6 +54,7 @@ class awal extends CI_Controller {
 	
 	public function register_petugas()
 	{
+		$data_reg['jenis'] = $this->model_loginPetugas->select_jenis()->result();
 		$data_reg['petugas'] = $this->model_loginPetugas->reg_petugas()->result();
 		$this->load->view('register_petugas', $data_reg);
 	}

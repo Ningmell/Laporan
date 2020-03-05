@@ -59,6 +59,7 @@ class petugas extends CI_Controller {
 	public function data()
 	{
 		$data['js'] = "script/data_petugas";
+		$data['jenis'] = $this->model_petugas->select_jenis()->result();
 		$data['petugas'] = $this->model_petugas->d_petugas()->result();
 		$this->load->view('data_petugas', $data);
 	}
@@ -195,6 +196,34 @@ class petugas extends CI_Controller {
 			SSP::simple($_GET, $sql_details, $table, $primarykey, $columns)
 		);
 
+	}
+	public function edit_profil()
+	{
+		$id_petugas = $this->input->post('Id_petugas');
+		$nama = $this->input->post('nama');
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$jk = $this->input->post('jk');
+		$alamat = $this->input->post('alamat');
+		$ttl = $this->input->post('ttl');
+		$email = $this->input->post('email');
+
+		$data = array(
+			'nama' => $nama,
+			'username' => $username,
+			'password' => md5($password),
+			'jk' => $jk,
+			'alamat' => $alamat,
+			'ttl' => $ttl,
+			'email' => $email 
+		);
+		$where = array(
+			'Id_petugas' => $id_petugas 
+		);
+
+		$this->model_petugas->edit_data($data,$where);
+		$this->session->set_flashdata('pesan', 'Berhasil di edit');
+		redirect(base_url('Petugas/'));
 	}
 
 }

@@ -102,8 +102,8 @@
                   			</div>
                 		</div>
                 	<div class="modal-footer">
-                		<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 		<button class="btn btn-success" type="submit" id="simpan">Simpan</button>
+                		<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 	</div>
 					</form>
 				</div>
@@ -179,8 +179,8 @@
                 			</div>
                 		</div>
                 		<div class="modal-footer">
-                			<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 			<button class="btn btn-success" type="submit">Edit</button>
+                			<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 		</div>
 					</form>
 				</div>
@@ -199,8 +199,8 @@
 					<p>Anda yakin akan menghapus data <b class="user-hapus">Username</b></p>
 				</div>
 				<div class="modal-footer">
-					<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 					<button class="btn btn-danger" type="submit">Hapus</button>
+					<button class="btn btn-secondary" data-dismiss="modal">Batal</button>
 				</div>
 				</form>
 			</div>

@@ -21,11 +21,12 @@ class jenis extends CI_Controller {
 		$id_jenis = $this->input->post('id_jenis'); 
 		$jenis = $this->input->post('jenis_antrian'); 
 		$ket = $this->input->post('ket');
+		$waktu = $this->input->post('waktu');
 
-		$data = array('jenis_antrian' => $jenis, 'ket' => $ket);
+		$data = array('jenis_antrian' => $jenis, 'ket' => $ket, 'waktu' => $waktu);
 		$where = array('id_jenis' => $jenis );
 
-		$this->model_jenis->add($data,$where);
+		$this->model_jenis->tambah($data,$where);
 		redirect(base_url('jenis/')); 
 	}
 	public function hapus()
@@ -46,7 +47,8 @@ class jenis extends CI_Controller {
 			array('db' => 'jenis_antrian', 'dt' => 1),
 			array('db' => 'id_jenis', 'dt' => 2),
 			array('db' => 'ket', 'dt' => 3),
-			array('db' => 'id_jenis', 'dt' => 4,
+			array('db' => 'waktu', 'dt' => 4),
+			array('db' => 'id_jenis', 'dt' => 5,
 				'formatter' => function ($d,$row)
 				{
 					return '<a href="javascript:void(0);" class="edit_record btn btn-warning btn-flat btn-sm" title="EDIT" data-id_jenis="'.$d.'" data-toggle="modal" data-target="#edit'.$d.'"><i class="fa fa-edit"></i></a>
