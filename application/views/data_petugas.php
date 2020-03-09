@@ -1,43 +1,38 @@
 <?php include 'template/header.php'; ?>
-<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
-	<div class="container-fluid">
-		<div class="header-body">
-			<div class="card bg-default shadow">
-				<div class="card-header bg-default">
-					<h3 class="text-white"><button class="btn btn-success btn-sm" data-toggle="modal" data-target="#tambah"><i class="ni ni-fat-add"></i> DATA PETUGAS</button> </h3>
-				</div>
-				<div>
-					<?php
-						$pesan = $this->session->flashdata('pesan');
-						if ($pesan) {
-							echo '
-							<div class="alert alert-danger">'.$pesan.'
-								<button class="close" type="button" data-dismiss="alert">x</button>
-							</div>
-							';
-						 } 
-						 ?>
-				</div>
-				<div class="table-responsive card-body">
-					<table class="table align-items-center table-dark table-flush" id="tbl_ptg">
-						<thead class="thead-dark">
-							<tr>
-								<th scope="col">No</th>
-								<th scope="col" style="width: 12%;">Nama <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
-								<th scope="col" style="width: 12%;">Username <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
-								<th scope="col" style="width: 12%;">Jenis Kelamin <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
-								<th scope="col" style="width: 12%;">Alamat <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
-								<th scope="col" style="width: 12%;">TTL <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
-								<th scope="col" style="width: 12%;">Email <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
-								<th scope="col">Aksi</th>
-							</tr>
-						</thead>
-						<tbody id="show_data">
-							
-						</tbody>
-					</table>
-				</div>
-			</div>
+	<div class="card bg-default shadow">
+		<div class="card-header bg-default">
+			<h3 class="text-white"><button class="btn btn-success btn-sm" data-toggle="modal" data-target="#tambah"><i class="ni ni-fat-add"></i> DATA PETUGAS</button> </h3>
+		</div>
+		<div>
+			<?php
+				$pesan = $this->session->flashdata('pesan');
+				if ($pesan) {
+					echo '
+					<div class="alert alert-danger">'.$pesan.'
+						<button class="close" type="button" data-dismiss="alert">x</button>
+					</div>
+					';
+				 } 
+				 ?>
+		</div>
+		<div class="table-responsive card-body">
+			<table class="table align-items-center table-dark table-flush" id="tbl_ptg">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">No</th>
+						<th scope="col" style="width: 12%;">Nama <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
+						<th scope="col" style="width: 12%;">Username <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
+						<th scope="col" style="width: 12%;">Jenis Kelamin <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
+						<th scope="col" style="width: 12%;">Alamat <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
+						<th scope="col" style="width: 12%;">TTL <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
+						<th scope="col" style="width: 12%;">Email <input class="form-control form-control-sm" type="text" placeholder="SEARCH.."></th>
+						<th scope="col">Aksi</th>
+					</tr>
+				</thead>
+				<tbody id="show_data">
+					
+				</tbody>
+			</table>
 		</div>
 	</div>
 
@@ -285,7 +280,6 @@
 		</div>
 	</div>
 	<?php } ?>
-</div>
 <?php include 'template/footer.php'; ?>
 <script>
 	$(document).ready(function () {

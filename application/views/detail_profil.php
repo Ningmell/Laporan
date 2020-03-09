@@ -1,32 +1,88 @@
-<?php include 'template/header.php'; ?>
-<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
-	<div class="container-fluid">
-		<div class="header-body">
-			<div class="card bg-default shadow">
-				<div class="card-header bg-default">
-					<h3 class="text-white"><button class="btn btn-success btn-sm" data-toggle="modal" data-target="#tambah"><i class="ni ni-fat-add"></i> EDIT PROFIL</button> </h3>
+<?php include 'template/header.php'; 
+foreach ($petugas as $key) {
+?>
+<div class="row">
+		<div class="col-md-7 mb-3">
+			<div class="card bg-secondary shadow">
+				<div class="card-body">
+					<h3>Profil</h3>
+					<div class="form-group">
+						<label>Nama :</label>
+            			<input type="text" name="nama"  value="<?=$key->nama?>" class="form-control">
+        			</div>
+        			<div class="form-group row">
+        				<div class="col">
+							<label>Username :</label>
+							<input type="text" name="username" class="form-control" value="<?=$key->username?>"></div>
+        				<div class="col">
+        					<label for="">Password :</label>
+        					<input type="password" class="form-control" value="<?=$key->password?>"></div>
+        				<div class="col-4">
+        					<label for="">Jenis Kelamin :</label>
+							<select name="jk" value="<?=$key->jk?>" class="form-control">
+								<option value="Laki-laki">Laki-laki</option>
+								<option value="Perempuan">Perempuan</option>
+							</select>
+        				</div>
+        			</div>
+        			<div class="form-group row">
+        				<div class="col-7">
+        					<label for="">Email :</label>
+        					<input type="text" class="form-control" value="<?=$key->email?>"></div>
+        				<div class="col">
+        					<label for="">Alamat :</label>
+        					<input type="text" class="form-control" value="<?=$key->alamat?>"></div>
+        				<div class="col-3">
+        					<label for="">TTL:</label>
+        					<input type="text" class="form-control" value="<?=$key->ttl?>"></div>
+        			</div>
+        			<div class="form-group row">
+        				<div class="col">
+        					<label for="">No Ktp :</label>
+        					<input type="text" class="form-control" value="<?=$key->no_ktp?>"></div>
+        				<div class="col">
+        					<label for="">No Hp :</label>
+        					<input type="text" class="form-control" value="<?=$key->hp?>"></div>
+        			</div>
+        			<div class="form-group">
+        				<textarea rows="6" class="form-control" placeholder="Keterangan" style="resize: none;"></textarea>
+        			</div>
+        			<button class="btn btn-info" type="submit">Simpan</button>
 				</div>
-				<div class="table-responsive card-body">
-					<table class="table align-items-center table-dark table-flush" id="tbl_ptg">
-						<thead class="thead-dark">
-							<tr>
-								<td>Nama</td>
-								<td>Username</td>
-								<td>Password</td>
-								<td>Alamat</td>
-								<td>Tempat Tanggal Lahir</td>
-								<td>Jenis Kelamin</td>
-								<td>Email</td>
-								<td>No Ktp</td>
-								<td>No Hp</td>
-							</tr>
-						</thead>
-						<tbody>
-							<?php 
-							 ?>
-						</tbody>
-					</tabel>
 			</div>
 		</div>
-	</div>
+		<div class="col-md-5">
+			<div class="card card-profile shadow">
+	            <div class="row justify-content-center">
+	              <div class="col-lg-3 order-lg-2">
+	                <div class="card-profile-image">
+	                  <a href="#">
+	                    <img src="<?php echo base_url('profile.jpeg') ?>" width="200px" height="200px" class="rounded-circle">
+	                  </a>
+	                </div>
+	              </div>
+	            </div>
+	            <div class="card-body pt-0 pt-md-4" style="margin-top: 150px">
+	              <div class="text-center">
+	                <h3>
+	                  <?=$key->nama?><span class="font-weight-light"></span>
+	                </h3>
+	                <div class="h5 font-weight-300">
+	                  <i class="ni location_pin mr-2"></i><?=$key->alamat?>
+	                </div>
+	                <div class="h5 mt-4">
+	                  <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
+	                </div>
+	                <div>
+	                  <i class="ni education_hat mr-2"></i>University of Computer Science
+	                </div>
+	                <hr class="my-4" />
+	                <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.</p>
+	                <a href="#">Show more</a>
+	              </div>
+	            </div>
+	          </div>
+		</div>
 </div>
+<?php }
+ include 'template/footer.php'; ?>

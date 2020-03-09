@@ -197,33 +197,11 @@ class petugas extends CI_Controller {
 		);
 
 	}
-	public function edit_profil()
+
+	public function profile($id)
 	{
-		$id_petugas = $this->input->post('Id_petugas');
-		$nama = $this->input->post('nama');
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$jk = $this->input->post('jk');
-		$alamat = $this->input->post('alamat');
-		$ttl = $this->input->post('ttl');
-		$email = $this->input->post('email');
-
-		$data = array(
-			'nama' => $nama,
-			'username' => $username,
-			'password' => md5($password),
-			'jk' => $jk,
-			'alamat' => $alamat,
-			'ttl' => $ttl,
-			'email' => $email 
-		);
-		$where = array(
-			'Id_petugas' => $id_petugas 
-		);
-
-		$this->model_petugas->edit_data($data,$where);
-		$this->session->set_flashdata('pesan', 'Berhasil di edit');
-		redirect(base_url('Petugas/'));
+		$data['petugas'] = $this->model_petugas->profile($id)->result();
+		$this->load->view('detail_profil',$data);
 	}
 
 }

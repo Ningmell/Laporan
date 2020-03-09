@@ -159,7 +159,12 @@
             if ($this->session->userdata('id_jenis') == '1') {
               echo '
               <li class="nav-item">
-                <a href="'.base_url('Petugas/detail_servis').'" class="nav-link" data-toggle="modal" data-target="#detail$key->Id_petugas">
+                <a href="'.base_url('Petugas/').'" class="nav-link">
+                  <i class="ni ni-chart-pie-35 text-blue"></i> Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="'.base_url('Petugas/profile/'.$this->session->userdata('Id_petugas')).'" class="nav-link">
                   <i class="ni ni-chart-pie-35 text-blue"></i> Detail Profil
                 </a>
               </li>
@@ -284,130 +289,12 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <?php 
-   // echo $_SESSION['Id_petugas'];
-    foreach ($petugas as $key) {
-     ?>
-    <div class="modal fade " id="detail">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3>Detail</h3>
-          </div>
-          <div class="modal-body">
-            <label for="">Nama : <?=$key->nama?></label><br>
-            <label for="">Userame : <?=$key->username?></label><br>
-            <label for="">Jenis Kelamin : <?=$key->jk?></label><br>
-            <label for="">Alamat : <?=$key->alamat?></label><br>
-            <label for="">Tempat Tanggal Lahir : <?=$key->ttl?></label><br>
-            <label for="">Email : <?=$key->email?></label><br>
-            <label for="">No Ktp : <?=$key->no_ktp?></label><br>
-            <label for="">No HP : <?=$key->hp?></label><br>
-            <label for="">Ket : <?=$key->ket?></label>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            <button class="btn btn-success" data-toggle="modal" data-target="#edit_profil">Edit</button>
-          </div>
-        </div>
-      </div>
+   
+<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+
     </div>
-    <div class="modal fade " id="edit_profil<?=$key->Id_petugas?>">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            Data Edit
-          </div>
-          <div class="modal-body">
-            <form action="<?=base_url('Petugas/edit_profil/'.$key->Id_petugas);?>">
-              <input type="hidden" name="Id_petugas" class="id-edit">
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                  </div>
-                  <input class="form-control id-nama" name="nama" type="text" placeholder="Nama" value="<?=$key->nama?>">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                  </div>
-                  <input class="form-control id-nama" name="username" type="text" placeholder="Username" value="<?=$key->username?>">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                  </div>
-                  <input class="form-control id-nama" name="password" type="password" placeholder="Password" value="<?=$key->password?>">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                  </div>
-                  <input class="form-control id-nama" name="jk" type="text" placeholder="Jneis Kelamin" value="<?=$key->jk?>">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                  </div>
-                  <input class="form-control id-nama" name="alamat" type="text" placeholder="Alamat" value="<?=$key->alamat?>">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                  </div>
-                  <input class="form-control id-nama" name="ttl" type="text" placeholder="Tempat Tanggal Lahir" value="<?=$key->ttl?>">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                  </div>
-                  <input class="form-control id-nama" name="email" type="text" placeholder="Email" value="<?=$key->email?>">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                  </div>
-                  <input class="form-control id-nama" name="no_ktp" type="text" placeholder="No Ktp" value="<?=$key->no_ktp?>">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                  </div>
-                  <input class="form-control id-nama" name="hp" type="text" placeholder="No HP" value="<?=$key->hp?>">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                  </div>
-                  <input class="form-control id-nama" name="ket" type="text" placeholder="Keterangan" value="<?=$key->ket?>">
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button class="btn btn-info" type="submit">Edit</button>
-                <button class="btn btn-secondary" data-dismiss="modal">Batal</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <?php } ?>
+  </div>
+</div>
+<div class="container-fluid mt--7">

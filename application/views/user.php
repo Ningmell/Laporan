@@ -99,6 +99,7 @@
     </div>
     <div class="container mt--9">
         
+    <div class="row justify-content">
     <?php
     foreach ($row as $isi) {
       $hho = $this->model_user->antrian($isi->id_jenis)->num_rows();
@@ -107,8 +108,7 @@
     
     <!-- Page content -->
     
-          <div class="row justify-content col-md-6">
-           <div class="col-xl-12 col-md-12">
+          <div class="col">
               <div class="card">
                 <div class="card-body">
                   <div class="row">
@@ -153,57 +153,9 @@
                 </div>
                 </div>
               </div>
-            </div>
-            </div>
-            <!--<div class="col-xl-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-10">Teller</h5>
-                      <span class="h2 font-weight-bold mb-0"><?php //echo $teller; ?></span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                        <i class="fas fa-users"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> <?php //echo date('Y-m-d',strtotime('-5 day')); ?></span>
-                    <span class="text-nowrap">Antian Sebelumnya</span>
-                  </p>
-                </div>
-                <div class="card-footer">
-                  <button class="btn btn-block btn-info" data-toggle="modal" data-target="#info">Antri</button>
-                </div>
-              </div>
-            </div>-->
-        
-        
-        <!--<div class="modal fade" id="info">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h3>Daftar Antrian Teller</h3>
-              </div>
-              <div class="modal-body">
-                <form method="post" action="<?php //echo base_url('data_user/teller/'.$teller); ?>">
-                <div class="form-group" align="center">
-                    <img src="<?php //echo base_url('mitra.png') ?>" width="200">
-                </div>
-                <input class="form-control" name="" type="text" disabled="true" style="height: 50px; font-size: 30px;" value="<?php //echo $teller; ?>">
-                <input type="hidden" name="id-info" value="<?php //echo $teller; ?>">
-              </div>
-              <div class="modal-footer">
-                <button class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button class="btn btn-success" type="submit">Daftar</button>
-                </form>  
-              </div>
-            </div>
           </div>
-        </div>-->
     <?php } ?>
+    </div>
     
     </div>
     <footer class="py-5">
