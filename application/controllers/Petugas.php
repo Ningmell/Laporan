@@ -39,7 +39,13 @@ class petugas extends CI_Controller {
 	public function ganti($status)
 	{
 		$id = $this->input->post('id');
-		$data = array('status' => $status);
+		$sekarang = date('H:i:s');
+		$row = $this->model_petugas->antrian_id($id)->row()->status;
+		if ($row == '2') {//jika statusnya pending 
+			$data = array('status' => $status, 'ket_mulai' => $sekarang);	
+		} elseif ($row == '3') {//jika statusnya proses
+			$data = array('status' => $status, 'ket_selesai' => $sekarang);
+		}
 		$where = array('id_antrian' => $id);
 		$this->model_petugas->ganti($data,$where);
 		if ($this->session->userdata('level') == '1') {
@@ -134,7 +140,7 @@ class petugas extends CI_Controller {
 	}
 	public function edit()
 	{
-		$id_petugas = $this->input->post('Id_petugas');
+		$id_petugas = $this->uri->segment(3);
 		$nama = $this->input->post('nama');
 		$username = $this->input->post('username');
 		$jk = $this->input->post('jk');

@@ -42,10 +42,10 @@ class model_petugas extends CI_Model {
 	{
 		return $this->db->get_where('petugas', array('username' => $username ));
 	}
-	//public function edit_data($data,$where)
-	//{
-	//	$this->db->update('petugas', $data, $where);
-	//}
+	public function edit_data($data,$where)
+	{
+		$this->db->update('petugas', $data, $where);
+	}
 	public function hapus_data($tabel,$where)
 	{
 		$this->db->delete($tabel, $where);
@@ -58,6 +58,10 @@ class model_petugas extends CI_Model {
 	public function profile($id)
 	{
 		return $this->db->get_where('petugas', array('Id_petugas' => $id));
+	}
+	public function antrian_id($id)
+	{
+		return $this->db->get_where('antrian', array('id_antrian' => $id));
 	}
 	public function get_sql_details()
 	{

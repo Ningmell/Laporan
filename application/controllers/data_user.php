@@ -170,6 +170,10 @@ class data_user extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('user/');
 	}
+	public function monitor()
+	{
+		
+	}
 
 }
 

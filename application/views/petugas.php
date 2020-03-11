@@ -9,11 +9,12 @@
     			<thead class="thead-dark">
                     <tr>
         				<th scope="col">No</th>
-                        <th scope="col">Waktu</th>
+                        <th scope="col">Tanggal</th>
         				<th scope="col">Kode Antrian</th>
         				<th scope="col">Pendding</th>
         				<th scope="col">Proses</th>
                         <th scope="col">Selesai</th>
+                        <th scope="col">Waktu Mulai</th>
                         <th scope="col">Waktu Selesai</th>
         			</tr>
                 </thead>
@@ -23,7 +24,7 @@
     			 ?>
     			 <tr>
     			 	<td align="center"><?php echo $no++; ?></td>
-                    <td><?=$isi->tgl?></td>
+                    <td><?= date('H:i:s d/m/Y',strtotime($isi->tgl)); ?></td>
                     <td class="id"><?php echo $isi->id_antrian; ?></td>
                     <?php  
                     if ($isi->status=='1') {
@@ -59,6 +60,7 @@
                     }
                     ?>
                     <td class="stts" hidden="true"><?php echo $isi->status; ?></td>
+                    <td><?=$isi->ket_mulai?></td>
                     <td><?=$isi->ket_selesai?></td>
                  </tr>
                  <?php } ?>
@@ -75,6 +77,7 @@
                 <form action="<?php echo base_url('Petugas/ganti/'.'3'); ?>" method="post">
                 <div class="modal-body">
                     <input type="hidden" class="id-proses" name="id">
+
                     <p>Anda yakin memproses data dengan id <b class="id-proses">id-antrian</b></p>
                 </div>
                 <div class="modal-footer">

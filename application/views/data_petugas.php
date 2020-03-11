@@ -175,7 +175,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-single-02"></i></span>
 									</div>
-									<input class="form-control id-nama" name="nama" type="text" placeholder="Nama" value="<?=$key->nama?>">
+									<input class="form-control" name="nama" type="text" placeholder="Nama" value="<?=$key->nama?>">
 								</div>
 							</div>
 							<div class="form-group">
@@ -183,7 +183,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-hat-3"></i></span>
 									</div>
-									<input class="form-control id-user" name="username" type="text" placeholder="Username" value="<?=$key->username;?>">
+									<input class="form-control" name="username" type="text" placeholder="Username" value="<?=$key->username;?>">
 								</div>
 							</div>
                 			<div class="form-group">
@@ -199,8 +199,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-cart"></i></span>
 									</div>
-									<select name="jk" class="form-control id-jk" value="<?=$key->jk?>">
-										<option value="">--- jenis kelamin ---</option>
+									<select name="jk" class="form-control" value="<?=$key->jk?>">
 										<option value="Laki-laki">Laki-laki</option>
 										<option value="Perempuan">Perempuan</option>
 									</select>
@@ -211,7 +210,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-square-pin"></i></span>
 									</div>
-									<input class="form-control id-alamat" name="alamat" type="text" placeholder="Alamat" value="<?=$key->alamat?>">
+									<input class="form-control" name="alamat" type="text" placeholder="Alamat" value="<?=$key->alamat?>">
 								</div>
 							</div>
 							<div class="form-group">
@@ -219,7 +218,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-world"></i></span>
 									</div>
-									<input class="form-control id-ttl" name="ttl" type="text" placeholder="Tempat Tanggal Lahir" value="<?=$key->ttl?>">
+									<input class="form-control" name="ttl" type="text" placeholder="Tempat Tanggal Lahir" value="<?=$key->ttl?>">
 								</div>
 							</div>
 							<div class="form-group">
@@ -227,7 +226,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ni ni-email-83"></i></span>
 									</div>
-									<input class="form-control id-email" name="email" type="text" placeholder="Email" value="<?=$key->email?>">
+									<input class="form-control" name="email" type="text" placeholder="Email" value="<?=$key->email?>">
 								</div>
 							</div>
 							<div class="modal-footer">
