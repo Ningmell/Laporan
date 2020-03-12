@@ -315,9 +315,9 @@
 				"iEnd"			: oSettings.fnDisplayEnd(),
 				"iLength"		: oSettings._iDisplayLength,
 				"iTotal"		: oSettings.fnRecordsTotal(),
-				"iFilteredTotal": oSettings.fnRecordDisplay(),
+				"iFilteredTotal": oSettings.fnRecordsDisplay(),
 				"iPage"			: Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
-				"iTotalPages"	: Math.ceil(oSettings.fnRecordDisplay() / oSettings._iDisplayLength)
+				"iTotalPages"	: Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
 			}
 		};
 
@@ -337,11 +337,18 @@
 				['100 Rows', '150 Rows', '200 Rows', '300 Rows', 'All']
 			],
 			"ajax"	: '<?php echo site_url('Petugas/ssp_petugas'); ?>',
-			"order"	: [[1, 'asc']],
+			"order"	: [[0, 'asc']],
 			"columnsDefs"	: [{
 				"targets" : [ -1 ],
 				"orderable" : false
-			}]
+			}],
+			"rowCallback" : function (row, data, _iDisplayIndex) {
+				var info = this.fnPagingInfo();
+				var page = info.iPage;
+				var length = info.iLength;
+				var index = page*length+(_iDisplayIndex+1);
+				$('td:eq(0)', row).html(index);
+			}
 		});
 
 		table.columns().every(function() {
@@ -373,7 +380,6 @@ $(document).ready(function () {
 			}
 		});
 		//e.preventDefault();
-		return false;
 	});
 });
 </script>

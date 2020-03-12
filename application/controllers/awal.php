@@ -28,11 +28,7 @@ class awal extends CI_Controller {
 					if ($key['level'] == '1') {
 						redirect(base_url('Petugas/smua_antrian'));
 					} else {
-						if ($key['id_jenis'] == '1') {
-							redirect(base_url('Petugas/'));
-						} else if ($key['id_jenis'] == '2') {
-							redirect(base_url('Petugas/'));
-						}
+						redirect(base_url('Petugas/'));
 					}
 				} else {
 					$this->session->set_flashdata(array(

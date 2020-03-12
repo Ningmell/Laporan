@@ -46,6 +46,10 @@ class model_user extends CI_Model {
 			'host' => 'localhost'
 		);
 	}
+	public function data_profie($ide)
+	{
+		return $this->db->get_where('coustumer', array('id_customer' => $ide));
+	}
 
 }
 

@@ -170,9 +170,10 @@ class data_user extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('user/');
 	}
-	public function monitor()
+	public function profil($ide)
 	{
-		
+		$data['coustumer'] = $this->model_user->data_profil($ide)->result();
+		$this->load->view('detail_user', $data);
 	}
 
 }

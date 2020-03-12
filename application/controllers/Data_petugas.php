@@ -8,7 +8,6 @@ class Data_petugas extends CI_Controller {
 		parent::__construct();
 		$this->load->model('mdl');
 	}
-
 	// public function get()
 	// {
 	// 	$data = $this->mdl->data_petugas_table();

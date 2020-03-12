@@ -30,6 +30,8 @@
   <link href="<?php echo base_url('argon/'); ?>assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="<?php echo base_url('argon/'); ?>assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="<?=base_url('argon/animate/animate.css');?>">
+  <link rel="stylesheet" type="text/css" href="<?=base_url('argon/animate.min.css');?>">
 </head>
 
 <body class="bg-default" style="background: white;">
@@ -69,7 +71,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="#">
+              <a class="nav-link nav-link-icon" href="#>
                 <i class="ni ni-single-02"></i>
                 <span class="nav-link-inner--text">Profile</span>
               </a>
@@ -100,8 +102,8 @@
     <!-- Page content -->
     <div class="container mt--8 pb-5">
       <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-7">
-          <div class="card bg-secondary shadow border-0">
+        <div class="col-lg-5 col-md-7 animated infinite shake">
+          <div class="card bg-secondary shadow border-0 ">
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
                 <small><!--Session nya--></small>

@@ -286,7 +286,7 @@
 				type : 'post',
 				data : $('#form-tambah').serialize(),
 				success:function(data){
-				 alert(data);
+				 //alert(data);
 
 				if (data == '1') {
 					swal("Good job!", "You clicked the button!", "success");

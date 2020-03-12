@@ -26,7 +26,7 @@
     			 	<td align="center"><?php echo $no++; ?></td>
                     <td><?= date('H:i:s d/m/Y',strtotime($isi->tgl)); ?></td>
                     <td class="id"><?php echo $isi->id_antrian; ?></td>
-                    <?php  
+                    <?php 
                     if ($isi->status=='1') {
                         ?>
                             <td class="pen">

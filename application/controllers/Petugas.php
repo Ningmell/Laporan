@@ -6,20 +6,15 @@ class petugas extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('model_petugas');
+		if (empty($this->session->userdata('Id_petugas'))) {
+			redirect('awal');
+		}
 	}
 	public function index()
 	{
 		$jenis = $this->session->userdata('id_jenis');
 		$data['antrian'] = $this->model_petugas->data($jenis)->result();
-		$id =$_SESSION['Id_petugas'];
-		$data['petugas'] = $this->model_petugas->detail_profil($id)->result();
-		$this->load->view('petugas',$data);
-	}
-	public function teller()
-	{
-		$jenis = $this->session->userdata('id_jenis');
-		$data['antrian'] = $this->model_petugas->data_t($jenis)->result();
-		$id =$_SESSION['Id_petugas'];
+		$id = $_SESSION['Id_petugas'];
 		$data['petugas'] = $this->model_petugas->detail_profil($id)->result();
 		$this->load->view('petugas',$data);
 	}
@@ -29,12 +24,6 @@ class petugas extends CI_Controller {
 		$id =$_SESSION['Id_petugas'];
 		$data['petugas'] = $this->model_petugas->detail_profil($id)->result();
 		$this->load->view('petugas',$data);
-	}
-	public function detail_servis()
-	{
-		$id =$_SESSION['Id_petugas'];
-		$data['petugas'] = $this->model_petugas->detail_profil($id)->result();
-		$this->load->view('detail_profil', $data);
 	}
 	public function ganti($status)
 	{
@@ -208,6 +197,31 @@ class petugas extends CI_Controller {
 	{
 		$data['petugas'] = $this->model_petugas->profile($id)->result();
 		$this->load->view('detail_profil',$data);
+	}
+
+	public function foto($id)
+	{
+		$config['upload_path'] = FCPATH . 'argon/image/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$config['max_size']  = '9999999999';
+		
+		$this->load->library('upload', $config);
+		
+		if ( ! $this->upload->do_upload('foto')){
+			echo "error";
+		}
+		else{
+			$where = array(
+				'Id_petugas' => $id
+			);
+
+			$data = array(
+				'foto' => $this->upload->data('file_name')
+			);
+			
+			$this->model_petugas->foto($where,$data);
+		}
+		redirect('Petugas/profile/'.$id);
 	}
 
 }

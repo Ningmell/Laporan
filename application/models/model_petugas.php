@@ -73,6 +73,11 @@ class model_petugas extends CI_Model {
 		);
 	}
 
+	public function foto($where,$data)
+	{
+		$this->db->update('petugas', $data, $where);
+	}
+
 }
 
 /* End of file  */

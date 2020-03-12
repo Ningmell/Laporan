@@ -56,8 +56,15 @@ foreach ($petugas as $key) {
 	            <div class="row justify-content-center">
 	              <div class="col-lg-3 order-lg-2">
 	                <div class="card-profile-image">
-	                  <a href="#">
-	                    <img src="<?php echo base_url('profile.jpeg') ?>" width="200px" height="200px" class="rounded-circle">
+	                  <a href="#ganti-foto" data-toggle="modal">
+	                  	<?php  
+	                  	if ($key->foto == '') {
+	                  		$foto = 'default.jpeg';
+	                  	} else {
+	                  		$foto = $key->foto;
+	                  	}
+	                  	?>
+	                  	<img src="<?php echo base_url('argon/image/'.$foto) ?>" width="200px" height="200px" class="rounded">
 	                  </a>
 	                </div>
 	              </div>
@@ -83,6 +90,27 @@ foreach ($petugas as $key) {
 	            </div>
 	          </div>
 		</div>
+</div>
+<div class="modal fade" id="ganti-foto">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<?php echo form_open_multipart('Petugas/foto/'.$this->session->userdata('Id_petugas')); ?>
+				<div class="modal-body">
+					<div class="form-group">
+						<div class="custom-file">
+							<input type="file" name="foto" class="custom-file-input">
+							<label for="" class="custom-file-label">Choose File</label>
+						</div>
+					</div>
+					<img src="<?php echo base_url('argon/image/'.$foto) ?>" width="100%" class="rounded">
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" data-dismiss="modal" type="button">Batal</button>
+					<button class="btn btn-primary" type="submit">Simpan</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
 <?php }
  include 'template/footer.php'; ?>

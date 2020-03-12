@@ -154,6 +154,11 @@
               <i class="ni ni-books text-success"></i> Data Jenis
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?=base_url('Petugas/profile/'.$this->session->userdata('Id_petugas'));?>" class="nav-link">
+              <i class="ni ni-single-02 text-warning"></i> Detail Profil
+            </a>
+          </li>
           <?php
           } else {
             if ($this->session->userdata('id_jenis') == '1') {
@@ -165,15 +170,20 @@
               </li>
               <li class="nav-item">
                 <a href="'.base_url('Petugas/profile/'.$this->session->userdata('Id_petugas')).'" class="nav-link">
-                  <i class="ni ni-chart-pie-35 text-blue"></i> Detail Profil
+                  <i class="ni ni-single-02 text-warning"></i> Detail Profil
                 </a>
               </li>
               ';
             } else {
               echo '
               <li class="nav-item">
-                <a href="'.base_url('Petugas/detail_servis').'" class="nav-link" data-toggle="modal" data-target="#detail_teller">
-                  <i class="ni ni-credit-card text-pink"></i> Detail Profil
+                <a href="'.base_url('Petugas/').'" class="nav-link">
+                  <i class="ni ni-chart-pie-35 text-blue"></i> Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="'.base_url('Petugas/profile/'.$this->session->userdata('Id_petugas')).'" class="nav-link">
+                  <i class="ni ni-single-02 text-warning"></i> Detail Profil
                 </a>
               </li>
               ';
