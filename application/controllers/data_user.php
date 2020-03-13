@@ -81,15 +81,17 @@ class data_user extends CI_Controller {
 		$password = $this->input->post('password');
 		$alamat = $this->input->post('alamat');
 		$ttl = $this->input->post('ttl');
+		$ktp = $this->input->post('no_ktp');
 		$email = $this->input->post('email');
 		$hp = $this->input->post('hp');
 
 		$data = array('id_costumer' => '',
 			'nama' => $nama,
 			'username' => $username,
-			'password' => $password,
+			'password' => md5($password),
 			'alamat' => $alamat,
 			'ttl' => $ttl,
+			'no_ktp' => $ktp,
 			'email' => $email,
 			'hp' => $hp
 		);
@@ -170,10 +172,10 @@ class data_user extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('user/');
 	}
-	public function profil($ide)
+	public function profil($id)
 	{
-		$data['coustumer'] = $this->model_user->data_profil($ide)->result();
-		$this->load->view('detail_user', $data);
+		$data['profil'] = $this->model_user->data_profil($id)->result();
+		$this->load->view('profil_user', $data);
 	}
 
 }

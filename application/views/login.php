@@ -70,12 +70,6 @@
                 <span class="nav-link-inner--text">Register</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="#>
-                <i class="ni ni-single-02"></i>
-                <span class="nav-link-inner--text">Profile</span>
-              </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -102,7 +96,7 @@
     <!-- Page content -->
     <div class="container mt--8 pb-5">
       <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-7 animated infinite shake">
+        <div class="col-lg-5 col-md-7 animated rotateIn">
           <div class="card bg-secondary shadow border-0 ">
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
@@ -123,7 +117,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Username" type="text" name="username">
+                    <input class="form-control" placeholder="Username" type="text" name="username" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -131,7 +125,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" type="password" name="password">
+                    <input class="form-control" placeholder="Password" type="password" name="password" required="required">
                   </div>
                 </div>
                 <div class="custom-control custom-control-alternative custom-checkbox">

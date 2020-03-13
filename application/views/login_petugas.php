@@ -30,6 +30,7 @@
   <link href="<?php echo base_url('argon/'); ?>assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="<?php echo base_url('argon/'); ?>assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+  <link rel="stylesheet" href="<?=base_url('argon/animate/animate.css')?>">
 </head>
 
 <body class="bg-default" style="background: white;">
@@ -38,7 +39,7 @@
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
         <a class="navbar-brand" href="<?php echo base_url('user/') ?>" class="argon_g">
-          <img src="<?php echo base_url('argon/'); ?>assets/img/brand/white.png" />
+          <img class="animated hinge" src="<?php echo base_url('argon/'); ?>assets/img/brand/white.png" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -79,7 +80,7 @@
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
-              <h1 class="text-white">Login Petugas!</h1>
+              <h1 class="text-white animated tada">Login Petugas!</h1>
               <p class="text-lead text-light">Sebelum Anda Bekerja Silahkan Login Terlebih Dahulu</p>
             </div>
           </div>
@@ -94,7 +95,7 @@
     <!-- Page content -->
     <div class="container mt--8 pb-5">
       <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-7">
+        <div class="col-lg-5 col-md-7 animated flipInY">
           <div class="card bg-secondary shadow border-0">
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
@@ -118,7 +119,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Username" type="text" name="username">
+                    <input class="form-control" placeholder="Username" type="text" name="username" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -126,7 +127,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" type="password" name="password">
+                    <input class="form-control" placeholder="Password" type="password" name="password" required="required">
                   </div>
                 </div>
                 <div class="custom-control custom-control-alternative custom-checkbox">

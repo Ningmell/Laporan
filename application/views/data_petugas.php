@@ -60,7 +60,7 @@
                 				<div class="input-group-prepend">
                 					<span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 				</div>
-                				<input type="text" name="username" placeholder="Username" class="form-control">
+                				<input type="text" name="username" placeholder="Username" class="form-control" required="required">
                 			</div>
                 		</div>
                 		<div class="form-group">
@@ -68,7 +68,7 @@
                 				<div class="input-group-prepend">
                 					<span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 				</div>
-                				<input type="password" name="password" placeholder="Password" class="form-control">
+                				<input type="password" name="password" placeholder="Password" class="form-control" required="required">
                 			</div>
                 		</div>
                 		<div class="form-group">
@@ -76,7 +76,7 @@
                 				<div class="input-group-prepend">
                 					<span class="input-group-text"><i class="ni ni-paper-diploma"></i></span>
                 				</div>
-                				<select name="jk" class="form-control">
+                				<select name="jk" class="form-control" required="required">
                 					<option value="">--- jenis kelamin ---</option>
                 					<option value="Laki-laki">Laki-laki</option>
                 					<option value="Perempuan">Perempuan</option>
@@ -88,7 +88,7 @@
                 				<div class="input-group-prepend">
                 					<span class="input-group-text"><i class="ni ni-square-pin"></i></span>
                 				</div>
-                				<input type="text" name="alamat" placeholder="Alamat" class="form-control">
+                				<input type="text" name="alamat" placeholder="Alamat" required="required" class="form-control">
                 			</div>
                 		</div>
                 		<div class="form-group">
@@ -96,7 +96,7 @@
                 				<div class="input-group-prepend">
                 					<span class="input-group-text"><i class="ni ni-world"></i></span>
                 				</div>
-                				<input type="text" name="ttl" placeholder="Tempat Tanggal Lahir" class="form-control">
+                				<input type="text" name="ttl" placeholder="Tempat Tanggal Lahir" class="form-control" required="required">
                 			</div>
                 		</div>
                 		<div class="form-group">
@@ -104,7 +104,7 @@
                 				<div class="input-group-prepend">
                 					<span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 				</div>
-                				<input type="text" name="email" placeholder="Email" class="form-control">
+                				<input type="text" name="email" placeholder="Email" class="form-control" required="required">
                 			</div>
                 		</div>	
                 		<div class="form-group">
@@ -112,7 +112,7 @@
                     			<div class="input-group-prepend">
                       				<span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                     			</div>
-                    			<input class="form-control" placeholder="No-KTP" type="text" name="no_ktp">
+                    			<input class="form-control" placeholder="No-KTP" type="text" name="no_ktp" required="required">
                   			</div>
                 		</div>
                 		<div class="form-group">
@@ -120,7 +120,7 @@
                     			<div class="input-group-prepend">
                       				<span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
                    				 </div>
-                    			<input class="form-control" placeholder="No-Telpon" type="text" name="hp">
+                    			<input class="form-control" placeholder="No-Telpon" type="text" name="hp" required="required">
                   			</div>
                			</div>
                 		<div class="form-group">
@@ -141,7 +141,7 @@
                     			<div class="input-group-prepend">
                       				<span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     			</div>
-                    			<select name="level" class="form-control">
+                    			<select name="level" class="form-control" required="required">
                       				<option value="">--- Level ---</option>
                       				<option value="1">Admin</option>
                      				 <option value="2">Petugas</option>
@@ -200,8 +200,8 @@
 										<span class="input-group-text"><i class="ni ni-cart"></i></span>
 									</div>
 									<select name="jk" class="form-control" value="<?=$key->jk?>">
-										<option value="Laki-laki">Laki-laki</option>
-										<option value="Perempuan">Perempuan</option>
+										<option value="Laki-laki<?=$key->jk?>">Laki-laki</option>
+										<option value="Perempuan<?=$key->jk?>">Perempuan</option>
 									</select>
 								</div>
 							</div>

@@ -70,7 +70,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="<?php echo base_url('data_user/profile/'.$this->session->userdata('id_customer')); ?>">
+              <a class="nav-link nav-link-icon" href="<?php echo base_url('data_user/profil/'.$this->session->userdata('id_customer')); ?>">
                 <i class="ni ni-single-02"></i>
                 <span class="nav-link-inner--text">Profil</span>
               </a>

@@ -31,6 +31,7 @@
   <link href="<?php echo base_url('argon/'); ?>assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="<?php echo base_url('argon/'); ?>assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+  <link rel="stylesheet" href="<?=base_url('argon/animet/animet.css')?>">
 </head>
 
 <body class="bg-default">
@@ -150,7 +151,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Nama" type="text" name="nama">
+                    <input class="form-control" placeholder="Nama" type="text" name="nama" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -158,7 +159,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Username" type="text" name="username">
+                    <input class="form-control" placeholder="Username" type="text" name="username" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -166,7 +167,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" type="Password" name="password">
+                    <input class="form-control" placeholder="Password" type="Password" name="password" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -174,7 +175,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email" type="text" name="email">
+                    <input class="form-control" placeholder="Email" type="text" name="email" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -182,7 +183,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-square-pin"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Alamat" type="text" name="alamat">
+                    <input class="form-control" placeholder="Alamat" type="text" name="alamat" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -190,7 +191,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-world"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Tempat Tanggal Lahir" type="text" name="ttl">
+                    <input class="form-control" placeholder="Tempat Tanggal Lahir" type="text" name="ttl" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -198,7 +199,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
                     </div>
-                    <input class="form-control" placeholder="No-Telpon" type="text" name="hp">
+                    <input class="form-control" placeholder="No-Telpon" type="text" name="hp" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -206,7 +207,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                     </div>
-                    <input class="form-control" placeholder="No-KTP" type="text" name="no_ktp">
+                    <input class="form-control" placeholder="No-KTP" type="text" name="no_ktp" required="required">
                   </div>
                 </div>
                 <div class="row my-4">

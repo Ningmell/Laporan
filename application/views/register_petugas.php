@@ -31,6 +31,7 @@
   <link href="<?php echo base_url('argon/'); ?>assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="<?php echo base_url('argon/'); ?>assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+  <link rel="stylesheet" href="<?=base_url('argon/animate/animate.css')?>">
 </head>
 
 <body class="bg-default">
@@ -39,7 +40,7 @@
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
         <a class="navbar-brand" href="<?php echo base_url('argon/'); ?>index.html">
-          <img src="<?php echo base_url('argon/'); ?>assets/img/brand/white.png" />
+          <img class="animated hinge" src="<?php echo base_url('argon/'); ?>assets/img/brand/white.png" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -97,7 +98,7 @@
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
-              <h1 class="text-white">Hallo!</h1>
+              <h1 class="text-white animated fadeInLeftBig">Hallo!</h1>
             </div>
           </div>
         </div>
@@ -112,21 +113,8 @@
     <div class="container mt--8 pb-5">
       <!-- Table -->
       <div class="row justify-content-center">
-        <div class="col-lg-6 col-md-8">
+        <div class="col-lg-6 col-md-8 animated rubberBand">
           <div class="card bg-secondary shadow border-0">
-            <!--<div class="card-header bg-transparent pb-5">
-              <div class="text-muted text-center mt-2 mb-4"><small>Sign up with</small></div>
-              <div class="text-center">
-                <a href="#" class="btn btn-neutral btn-icon mr-4">
-                  <span class="btn-inner--icon"><img src="<?php //echo base_url('argon/'); ?>assets/img/icons/common/github.svg"></span>
-                  <span class="btn-inner--text">Github</span>
-                </a>
-                <a href="#" class="btn btn-neutral btn-icon">
-                  <span class="btn-inner--icon"><img src="<?php //echo base_url('argon/'); ?>assets/img/icons/common/google.svg"></span>
-                  <span class="btn-inner--text">Google</span>
-                </a>
-              </div>
-            </div>-->
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
                 <small><center>REGISTER PETUGAS</center></small>
@@ -149,7 +137,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Nama" type="text" name="nama" autofocus>
+                    <input class="form-control" placeholder="Nama" type="text" name="nama" autofocus required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -157,7 +145,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Username" type="text" name="username">
+                    <input class="form-control" placeholder="Username" type="text" name="username" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -165,7 +153,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" type="Password" name="password">
+                    <input class="form-control" placeholder="Password" type="Password" name="password" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -173,7 +161,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-cart"></i></span>
                     </div>
-                    <select name="jk" class="form-control">
+                    <select name="jk" class="form-control" required="required">
                       <option value="">--- jenis kelamin ---</option>
                       <option value="Laki-laki">Laki-laki</option>
                       <option value="Perempuan">Perempuan</option>
@@ -185,7 +173,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-paper-diploma"></i></span>
                     </div>
-                    <select name="id_jenis" class="form-control">
+                    <select name="id_jenis" class="form-control" required="required">
                       <option value="">--- jenis antrian ---</option>
                       <?php foreach ($jenis as $key) {?>
                       <option value="<?=$key->id_jenis?>"><?=$key->jenis_antrian?></option>
@@ -198,7 +186,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-square-pin"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Alamat" type="text" name="alamat">
+                    <input class="form-control" placeholder="Alamat" type="text" name="alamat" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -206,7 +194,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-world"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Tempat Tanggal Lahir" type="text" name="ttl">
+                    <input class="form-control" placeholder="Tempat Tanggal Lahir" type="text" name="ttl" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -214,7 +202,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email" type="text" name="email">
+                    <input class="form-control" placeholder="Email" type="text" name="email" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -222,7 +210,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <select name="level" class="form-control">
+                    <select name="level" class="form-control" required="required">
                       <option value="">--- Level ---</option>
                       <option value="1">Admin</option>
                       <option value="2">Petugas</option>
@@ -234,7 +222,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                     </div>
-                    <input class="form-control" placeholder="No-KTP" type="text" name="no_ktp">
+                    <input class="form-control" placeholder="No-KTP" type="text" name="no_ktp" required="required">
                   </div>
                 </div>
                 <div class="form-group">
@@ -242,7 +230,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
                     </div>
-                    <input class="form-control" placeholder="No-Telpon" type="text" name="hp">
+                    <input class="form-control" placeholder="No-Telpon" type="text" name="hp" required="required">
                   </div>
                 </div>
                 <div class="row my-4">

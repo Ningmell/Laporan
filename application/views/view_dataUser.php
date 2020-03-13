@@ -56,7 +56,7 @@
                 				<div class="input-group-prepend">
                 					<span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 				</div>
-                				<input type="password" name="password" placeholder="Password" class="form-control">
+                				<input type="password" name="password" placeholder="Password" class="form-control" required="required">
                 			</div>
                 		</div>
                 		<div class="form-group">
@@ -64,7 +64,7 @@
                 				<div class="input-group-prepend">
                 					<span class="input-group-text"><i class="ni ni-square-pin"></i></span>
                 				</div>
-                				<input type="text" name="alamat" placeholder="Alamat" class="form-control">
+                				<input type="text" name="alamat" placeholder="Alamat" class="form-control" required="required">
                 			</div>
                 		</div>
                 		<div class="form-group">
@@ -72,7 +72,7 @@
                     			<div class="input-group-prepend">
                       				<span class="input-group-text"><i class="ni ni-world"></i></span>
                    				</div>
-                    			<input class="form-control" placeholder="Tempat Tanggal Lahir" type="text" name="ttl">
+                    			<input class="form-control" placeholder="Tempat Tanggal Lahir" type="text" name="ttl" required="required">
                   			</div>
                			</div>
                 		<div class="form-group">
@@ -80,7 +80,7 @@
                 				<div class="input-group-prepend">
                 					<span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 				</div>
-                				<input type="text" name="email" placeholder="Email" class="form-control">
+                				<input type="text" name="email" placeholder="Email" class="form-control" required="required">
                 			</div>
                 		</div>
                 		<div class="form-group">
@@ -88,7 +88,7 @@
                 				<div class="input-group-prepend">
                 					<span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
                 				</div>
-                				<input type="text" name="hp" placeholder="No Hp" class="form-control">
+                				<input type="text" name="hp" placeholder="No Hp" class="form-control" required="required">
                 			</div>
                 		</div>
                 		<div class="form-group">
@@ -96,7 +96,7 @@
                     			<div class="input-group-prepend">
                       				<span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                     			</div>
-                    			<input class="form-control" placeholder="No-KTP" type="text" name="no_ktp">
+                    			<input class="form-control" placeholder="No-KTP" type="text" name="no_ktp" required="required">
                   			</div>
                 		</div>
                 	<div class="modal-footer">
@@ -239,9 +239,9 @@
 				"iEnd"			: oSettings.fnDisplayEnd(),
 				"iLength"		: oSettings._iDisplayLength,
 				"iTotal"		: oSettings.fnRecordsTotal(),
-				"iFilteredTotal": oSettings.fnRecordDisplay(),
+				"iFilteredTotal": oSettings.fnRecordsDisplay(),
 				"iPage"			: Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
-				"iTotalPages"	: Math.ceil(oSettings.fnRecordDisplay() / oSettings._iDisplayLength)
+				"iTotalPages"	: Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
 			}
 		};
 
@@ -265,7 +265,14 @@
 			"columnsDefs"	: [{
 				"targets" : [ -1 ],
 				"orderable" : false
-			}]
+			}],
+			"rowCallback" : function (row, data, _iDisplayIndex) {
+				var info = this.fnPagingInfo();
+				var page = info.iPage;
+				var length = info.iLength;
+				var index = page*length+(_iDisplayIndex+1);
+				$('td:eq(0)', row).html(index);
+			}
 		});
 
 		table.columns().every(function() {

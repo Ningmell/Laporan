@@ -78,14 +78,13 @@ foreach ($petugas as $key) {
 	                  <i class="ni location_pin mr-2"></i><?=$key->alamat?>
 	                </div>
 	                <div class="h5 mt-4">
-	                  <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
+	                  <i class="ni business_briefcase-24 mr-2"></i>Creative Tim Officer
 	                </div>
 	                <div>
-	                  <i class="ni education_hat mr-2"></i>University of Computer Science
+	                  <i class="ni education_hat mr-2"></i><?=$key->ttl?>
 	                </div>
 	                <hr class="my-4" />
-	                <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.</p>
-	                <a href="#">Show more</a>
+	                <p><?=$key->ket?></p>
 	              </div>
 	            </div>
 	          </div>
